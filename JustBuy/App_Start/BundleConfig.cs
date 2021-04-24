@@ -26,13 +26,22 @@ namespace JustBuy
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
             bundles.Add(new StyleBundle("~/Content/layouts-styles").Include(
-                    "~/Content/css/normalize.css",
-                    "~/Content/css/components.css",
-                    "~/Content/css/rylee-template.css"
+                    "~/Content/css/bootstrap.min.css",
+                    "~/Content/lib/css/nivo-slider.css",
+                    "~/Content/css/core.css",
+                    "~/Content/css/shortcode/shortcodes.css",
+                    "~/Content/css/style.css",
+                    "~/Content/css/responsive.css",
+                    "~/Content/css/color/color-core.css",
+                    "~/Content/css/custom.css"
                    ));
 
             bundles.Add(new ScriptBundle("~/Content/layouts-scripts").Include(
-                    "~/Content/js/rylee-template.js"
+                    "~/Content/js/vendor/jquery-3.1.1.min.js",
+                    "~/Content/js/bootstrap.min.js",
+                    "~/Content/lib/js/jquery.nivo.slider.js",
+                    "~/Content/js/plugins.js",
+                    "~/Content/js/main.js"
                 ));
         }
     }

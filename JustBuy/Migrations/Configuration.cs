@@ -125,45 +125,6 @@ namespace JustBuy.Migrations
                 LaunchDate = DateTime.Now.AddDays(-365),
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
-            }, new Product()
-            {
-                Id = 9,
-                CategoryId = 2,
-                Description = "",
-                Images = "",
-                Name = "Overhaul - Betley",
-                Price = 39.00,
-                Quantity = 10,
-                Status = Product.ProductStatus.Active,
-                LaunchDate = DateTime.Now.AddDays(-365),
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
-            }, new Product()
-            {
-                Id = 10,
-                CategoryId = 2,
-                Description = "Enhance your natural style and comfort ideally with the SKECHERS Overhaul - Betley shoe. Smooth action leather, mesh fabric and synthetic upper in a lace up sporty walking and training sneaker with stitching accents and Air Cooled Memory Foam insole.",
-                Images = "",
-                Name = "Queenie",
-                Price = 85.00,
-                Quantity = 10,
-                Status = Product.ProductStatus.Active,
-                LaunchDate = DateTime.Now.AddDays(-365),
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
-            }, new Product()
-            {
-                Id = 11,
-                CategoryId = 2,
-                Description = "",
-                Images = "",
-                Name = "Queenie",
-                Price = 39.00,
-                Quantity = 10,
-                Status = Product.ProductStatus.Active,
-                LaunchDate = DateTime.Now.AddDays(-365),
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
             });
         }
         private void seedCategory(AppDataContext context)
