@@ -4,281 +4,822 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JustBuy</title>
-    <!-- Latest compiled and minified CSS -->
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/icon/favicon.png">
 
     @Styles.Render("~/Content/layouts-styles")
-    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
-    <script type="text/javascript">WebFont.load({ google: { families: ["Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic", "Gothic A1:100,200,300,regular,500,600,700,800,900"] } });</script>
-    <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
-    <script type="text/javascript">!function (o, c) { var n = c.documentElement, t = " w-mod-"; n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch") }(window, document);</script>
-    <link href="https://via.placeholder.com/1000x600.png?text=IMAGE" rel="shortcut icon" type="image/x-icon">
-    <link href="https://via.placeholder.com/1000x600.png?text=IMAGE" rel="apple-touch-icon">
+    <!-- Modernizr JS -->
+    <script src="@Url.Content("~/Content/js/vendor/modernizr-2.8.3.min.js")"></script>
 
     @RenderSection("PageStyles", false)
 </head>
 <body>
-    <header class="navigation-section">
-        <div class="navigation-overlay"></div>
-        <div class="navigation-and-offcanvas">
-            <div class="col lg-2 md-basis-auto md-order-first no-margin-bottom-lg"><a href="#" class="brand justify-left w-inline-block"><img src="@Url.Content("~/Content/images/-asset-logo-dark.svg")" alt=""></a></div>
-            <div class="col no-margin-bottom lg-8 md-basis-auto md-order-last">
-                <nav class="navigation-menu flexh-justify-center position-relative">
-
-                    <a href="index.html" class="nav-link w--current">Home</a>
-                    <div data-hover="1" data-delay="0" data-w-id="fc005ed5-8c32-46d8-e974-eceecf05a618" class="nav-dropdown has-megamenu w-dropdown">
-                        <div class="nav-dropdown-toggle w-dropdown-toggle">
-                            <a href="financial/services.html" class="nav-link-block w-inline-block">
-                                <div>Shop</div>
-                                <div class="dropdown-icon w-icon-dropdown-toggle"></div>
-                            </a>
-                        </div>
-                        <nav class="c-megadropdown w-dropdown-list">
-                            <div class="container container-nested">
-                                <div class="col lg-3 md-12 no-margin-bottom-lg">
-                                    <h4 class="dropdown-title">Categories</h4><a href="#" class="c-megadropdown_link w-dropdown-link">Folding chair</a><a href="#" class="c-megadropdown_link w-dropdown-link">Gaming chair</a><a href="#" class="c-megadropdown_link w-dropdown-link">Ottoman chair</a><a href="#" class="c-megadropdown_link w-dropdown-link">Accent chair</a>
-                                </div>
-                                <div class="col lg-3 md-12 no-margin-bottom-lg">
-                                    <h4 class="dropdown-title">Product layout </h4><a href="single-product.html" class="c-megadropdown_link w-dropdown-link">Standard</a><a href="single-product-with-scrolling-photos.html" class="c-megadropdown_link w-dropdown-link">Big photos</a><a href="single-product-w-left-sidebar.html" class="c-megadropdown_link w-dropdown-link">Left sidebar</a><a href="single-product-w-right-sidebar.html" class="c-megadropdown_link w-dropdown-link">Right sidebar</a>
-                                </div>
-                                <div class="col lg-3 md-12 no-margin-bottom-lg">
-                                    <h4 class="dropdown-title">Shop grid style</h4><a href="shop-2-col.html" class="c-megadropdown_link w-dropdown-link">2 columns</a><a href="shop-3-col.html" class="c-megadropdown_link w-dropdown-link">3 columns</a><a href="shop-4-col.html" class="c-megadropdown_link w-dropdown-link">4 columns</a><a href="shop-5-col-fullwidth.html" class="c-megadropdown_link w-dropdown-link">5 cols &amp; fullwidth</a>
-                                </div>
-                                <div class="col lg-3 md-12 no-margin-bottom-lg">
-                                    <h4 class="dropdown-title">Pages</h4><a href="cart.html" class="c-megadropdown_link w-dropdown-link">Cart</a><a href="checkout.html" class="c-megadropdown_link w-dropdown-link">Checkout</a><a href="order-complete.html" class="c-megadropdown_link w-dropdown-link">Order complete</a>
-                                </div>
-                            </div>
-                        </nav>
-                    </div><a href="about.html" class="nav-link">About</a><a href="blog.html" class="nav-link">Blog</a><a href="contact.html" class="nav-link">Contact</a>
-                    <div data-hover="1" data-delay="0" data-w-id="fc005ed5-8c32-46d8-e974-eceecf05a65c" class="nav-dropdown w-dropdown">
-                        <div class="nav-dropdown-toggle w-dropdown-toggle">
-                            <a href="financial/services.html" class="nav-link-block w-inline-block">
-                                <div>Pages</div>
-                                <div class="dropdown-icon w-icon-dropdown-toggle"></div>
-                            </a>
-                        </div>
-                        <nav class="dropdown-list w-dropdown-list"><a href="lookbook.html" class="dropdown-link w-dropdown-link">Lookbook</a><a href="single-post.html" class="dropdown-link w-dropdown-link">Single post</a></nav>
-                    </div>
-
-
-
-                </nav>
-            </div>
-            <div class="col no-margin-bottom lg-3 lg-text-align-right md-basis-auto">
-                <div class="inline-block position-relative">
-
-                    <div class="c-search-popup w-form">
-                        <form id="email-form-2" name="email-form-2" data-name="Email Form 2"><input type="text" class="form-input-text w-input" maxlength="256" name="Search-2" data-name="Search 2" placeholder="Search product" id="Search-2"></form>
-                        <div class="w-form-done">
-                            <div>Thank you! Your submission has been received!</div>
-                        </div>
-                        <div class="w-form-fail">
-                            <div>Oops! Something went wrong while submitting the form.</div>
-                        </div>
-                        <a data-w-id="0d9236df-2bb5-5160-afe8-9bcead019112" href="#" class="c-search-popup__close-btn w-inline-block">
-                            <div><em class="iconfont__no-italize"></em></div>
-                        </a>
-                    </div>
-                </div>
-
-                <div data-hover="1" data-delay="0" class="nav-dropdown w-dropdown" style="display: inline-block !important">
-                    <div class="nav-dropdown-toggle w-dropdown-toggle" style="display: inline">
-                        <a href="/" class="nav-link-block w-inline-block c-navbar-icon is-19px">
-                             @User.Identity.Name
-                        </a>
-                    </div>
-                    <nav class="dropdown-list w-dropdown-list">
-                        <a href="@Url.Action("UpdateProfile", "Account")" class="dropdown-link w-dropdown-link">Edit Profile</a>
-                        <form action="@Url.Action("LogOff", "Account")" method="post">
-                            @Html.AntiForgeryToken()
-                            <button class="dropdown-link w-dropdown-link" type="submit" style="background-color: transparent">Logout</button>
-                        </form>
-     
-                    </nav>
-                </div>
-
-                <div data-w-id="11f9c14f-6862-95c1-4399-a7985f01b570" class="c-cart inline-block position-relative" style="display: inline-block">
-                    <a href="#" class="c-navbar-icon"></a>
-                    <div class="c-cart__dropdown">
-                        <div class="c-cart__item">
-                            <a href="#" class="c-cart__remove-btn w-inline-block">
-                                <div class="iconfont"><em class="iconfont__no-italize"></em></div>
-                            </a><img src="https://via.placeholder.com/1000x600.png?text=IMAGE" width="64" alt="" class="c-cart__thumbnail">
-                            <div class="text-align-left text-small flexv-space-between">
-                                <div class="is-heading-color margin-bottom-xsmall md-text-xsmall">Sorrento Retro Wooden Armchair</div>
-                                <div class="weight-is-medium low-text-contrast">1 × $120</div>
+    <div class="wrapper">
+        <!-- START HEADER AREA -->
+        <header class="header-area header-wrapper">
+            <!-- header-top-bar -->
+            <div class="header-top-bar plr-185">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6 hidden-xs">
+                            <div class="call-us">
+                                <p class="mb-0 roboto">(+88) 01234-567890</p>
                             </div>
                         </div>
-                        <div class="c-cart__item no-border-bottom">
-                            <a href="#" class="c-cart__remove-btn w-inline-block">
-                                <div class="iconfont"><em class="iconfont__no-italize"></em></div>
-                            </a><img src="https://via.placeholder.com/1000x600.png?text=IMAGE" width="64" alt="" class="c-cart__thumbnail">
-                            <div class="text-align-left text-small flexv-space-between">
-                                <div class="is-heading-color margin-bottom-xsmall md-text-xsmall">Loris Contemporary Linen Wingback </div>
-                                <div class="weight-is-medium low-text-contrast">1 × $120</div>
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="top-link clearfix">
+                                <ul class="link f-right">
+                                    <li>
+                                        <a href="my-account.html">
+                                            <i class="zmdi zmdi-account"></i>
+                                            My Account
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="wishlist.html">
+                                            <i class="zmdi zmdi-favorite"></i>
+                                            Wish List (0)
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="login.html">
+                                            <i class="zmdi zmdi-lock"></i>
+                                            Login
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="c-cart__section">
-                            <div>Subtotal : </div>
-                            <div>$240</div>
+                    </div>
+                </div>
+            </div>
+            <!-- header-middle-area -->
+            <div id="sticky-header" class="header-middle-area plr-185">
+                <div class="container-fluid">
+                    <div class="full-width-mega-dropdown">
+                        <div class="row">
+                            <!-- logo -->
+                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <img src="img/logo/logo.png" alt="main logo">
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- primary-menu -->
+                            <div class="col-md-8 hidden-sm hidden-xs">
+                                <nav id="primary-menu">
+                                    <ul class="main-menu text-center">
+                                        <li>
+                                            <a href="index.html">Home</a>
+                                            <ul class="dropdwn">
+                                                <li>
+                                                    <a href="index.html">Home Version 1</a>
+                                                </li>
+                                                <li>
+                                                    <a href="index-2.html">Home Version 2</a>
+                                                </li>
+                                                <li>
+                                                    <a href="index-3.html">Home Version 3</a>
+                                                </li>
+                                                <li>
+                                                    <a href="index-4.html">Home 4 Animated Text</a>
+                                                </li>
+                                                <li>
+                                                    <a href="index-5.html">Home 5 Animated Text Ovlerlay</a>
+                                                </li>
+                                                <li>
+                                                    <a href="index-6.html">Home 6 Background Video</a>
+                                                </li>
+                                                <li>
+                                                    <a href="index-7.html">Home 7 BG-Video Ovlerlay</a>
+                                                </li>
+                                                <li>
+                                                    <a href="index-8.html">Home 8 Boxed</a>
+                                                </li>
+                                                <li>
+                                                    <a href="index-9.html">Home 9 Gradient</a>
+                                                </li>
+                                                <li>
+                                                    <a href="index-10.html">Home 10 Boxed-2</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="mega-parent">
+                                            <a href="#">elements</a>
+                                            <div class="mega-menu-area clearfix">
+                                                <div class="mega-menu-link mega-menu-link-4  f-left">
+                                                    <ul class="single-mega-item">
+                                                        <li class="menu-title">Elements 1</li>
+                                                        <li>
+                                                            <a href="elements-header-1-sticky.html">header-1-sticky</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-header-1-no-sticky.html">header-1-no-sticky</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-header-2-sticky.html">header-2-sticky</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-header-2-no-sticky.html">header-2-no-sticky</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-footer-1.html">footer-1</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-footer-2.html">footer-2</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-footer-3.html">footer-3</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-contact-form.html">Dynamic Contact Form</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-map.html">Google Map</a>
+                                                        </li>
+                                                    </ul>
+                                                    <ul class="single-mega-item">
+                                                        <li class="menu-title">Elements 2</li>
+                                                        <li>
+                                                            <a href="elements-featured-product-1.html">featured-product-1</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-featured-product-2.html">featured-product-2</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-product-tab-1.html">product-tab-1</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-product-tab-2.html">product-tab-2</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-up-comming-product-1.html">up-comming-product-1</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-up-comming-product-2.html">up-comming-product-2</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-single-product.html">single-product</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-sidebar-left.html">sidebar-left</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-sidebar-right.html">sidebar-right</a>
+                                                        </li>
+                                                    </ul>
+                                                    <ul class="single-mega-item">
+                                                        <li class="menu-title">Elements 3</li>
+                                                        <li>
+                                                            <a href="elements-section-title.html">section-title</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-pagination.html">pagination</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-banner.html">Banner</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-brands.html">Brands</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-breadcrumbs.html">Breadcrumbs</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-newsletter.html">Newsletter</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-team.html">team</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-audio.html">Audio</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-video.html">Video</a>
+                                                        </li>
+                                                    </ul>
+                                                    <ul class="single-mega-item">
+                                                        <li class="menu-title">Elements 4</li>
+                                                        <li>
+                                                            <a href="elements-typography.html">typography</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-buttons.html">Buttons</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-call-to-action.html">Call to Action</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-accordion.html">Accordion</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-alerts.html">Alerts</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-progress-bars.html">progress-bars</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-tab.html">tab</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-toggles.html">toggles</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="elements-toggles.html">toggles</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="mega-parent">
+                                            <a href="shop.html">Products</a>
+                                            <div class="mega-menu-area clearfix">
+                                                <div class="mega-menu-link f-left">
+                                                    <ul class="single-mega-item">
+                                                        <li class="menu-title">Smart Phone</li>
+                                                        <li>
+                                                            <a href="#">All Mobile Phones</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Smart phones</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Android Mobiles</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Windows Mobiles</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Refurbished Mobiles</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">All Mobile Accessories</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Cases & Covers</a>
+                                                        </li>
+                                                    </ul>
+                                                    <ul class="single-mega-item">
+                                                        <li class="menu-title">Note Book</li>
+                                                        <li>
+                                                            <a href="">All Note Books</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">Smart notebooks</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">Android Note Book</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">Windows Note Books</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">Refurbished Note Books</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">Note Books Accessories</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">Cases & Covers</a>
+                                                        </li>
+                                                    </ul>
+                                                    <ul class="single-mega-item">
+                                                        <li class="menu-title">Tablets</li>
+                                                        <li>
+                                                            <a href="">All Tablets</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">Smart tablets</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">Android Tablets</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">Windows Tablets</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">Refurbished Tablets</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">Tablets Accessories</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">Cases & Covers</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="mega-menu-photo f-left">
+                                                    <a href="#">
+                                                        <img src="img/mega-menu/1.jpg" alt="mega menu image">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="mega-parent">
+                                            <a href="#">Pages</a>
+                                            <div class="mega-menu-area mega-menu-area-2 clearfix">
+                                                <div class="mega-menu-link mega-menu-link-2  f-left">
+                                                    <ul class="single-mega-item">
+                                                        <li class="menu-title">page list</li>
+                                                        <li>
+                                                            <a href="shop.html">Shop</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-left-sidebar.html">Shop Left Sidebar</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-right-sidebar.html">Shop Right Sidebar</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-list.html">Shop List</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-list-right-sidebar.html">Shop List Right Sidebar</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="single-product.html">Single Product</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="single-product-left-sidebar.html">Single Product Left Sidebar</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="single-product-no-sidebar.html">Single Product No Sidebar</a>
+                                                        </li>
+                                                    </ul>
+                                                    <ul class="single-mega-item">
+                                                        <li class="menu-title">page list</li>
+                                                        <li>
+                                                            <a href="cart.html">Shopping Cart</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="wishlist.html">Wishlist</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="checkout.html">Checkout</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="order.html">Order</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="login.html">Login</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="My-account.html">My Account</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="about.html">About us</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="404.html">404</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="blog.html">Blog</a>
+                                            <ul class="dropdwn">
+                                                <li>
+                                                    <a href="blog.html">Blog</a>
+                                                </li>
+                                                <li>
+                                                    <a href="blog-left-sidebar.html">Blog Left Sidebar</a>
+                                                </li>
+                                                <li>
+                                                    <a href="blog-right-sidebar.html">Blog Right Sidebar</a>
+                                                </li>
+                                                <li>
+                                                    <a href="blog-2.html">Blog style 2</a>
+                                                </li>
+                                                <li>
+                                                    <a href="blog-2-left-sidebar.html">Blog 2 Left Sidebar</a>
+                                                </li>
+                                                <li>
+                                                    <a href="blog-2-right-sidebar.html">Blog 2 Right Sidebar</a>
+                                                </li>
+                                                <li>
+                                                    <a href="blog-details.html">Blog Details</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="about.html">About us</a>
+                                        </li>
+                                        <li>
+                                            <a href="contact.html">Contact</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!-- header-search & total-cart -->
+                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                <div class="search-top-cart  f-right">
+                                    <!-- header-search -->
+                                    <div class="header-search f-left">
+                                        <div class="header-search-inner">
+                                            <button class="search-toggle">
+                                                <i class="zmdi zmdi-search"></i>
+                                            </button>
+                                            <form action="#">
+                                                <div class="top-search-box">
+                                                    <input type="text" placeholder="Search here your product...">
+                                                    <button type="submit">
+                                                        <i class="zmdi zmdi-search"></i>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- total-cart -->
+                                    <div class="total-cart f-left">
+                                        <div class="total-cart-in">
+                                            <div class="cart-toggler">
+                                                <a href="#">
+                                                    <span class="cart-quantity">02</span><br>
+                                                    <span class="cart-icon">
+                                                        <i class="zmdi zmdi-shopping-cart-plus"></i>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <ul>
+                                                <li>
+                                                    <div class="top-cart-inner your-cart">
+                                                        <h5 class="text-capitalize">Your Cart</h5>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="total-cart-pro">
+                                                        <!-- single-cart -->
+                                                        <div class="single-cart clearfix">
+                                                            <div class="cart-img f-left">
+                                                                <a href="#">
+                                                                    <img src="img/cart/1.jpg" alt="Cart Product" />
+                                                                </a>
+                                                                <div class="del-icon">
+                                                                    <a href="#">
+                                                                        <i class="zmdi zmdi-close"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="cart-info f-left">
+                                                                <h6 class="text-capitalize">
+                                                                    <a href="#">Dummy Product Name</a>
+                                                                </h6>
+                                                                <p>
+                                                                    <span>Brand <strong>:</strong></span>Brand Name
+                                                                </p>
+                                                                <p>
+                                                                    <span>Model <strong>:</strong></span>Grand s2
+                                                                </p>
+                                                                <p>
+                                                                    <span>Color <strong>:</strong></span>Black, White
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <!-- single-cart -->
+                                                        <div class="single-cart clearfix">
+                                                            <div class="cart-img f-left">
+                                                                <a href="#">
+                                                                    <img src="img/cart/1.jpg" alt="Cart Product" />
+                                                                </a>
+                                                                <div class="del-icon">
+                                                                    <a href="#">
+                                                                        <i class="zmdi zmdi-close"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="cart-info f-left">
+                                                                <h6 class="text-capitalize">
+                                                                    <a href="#">Dummy Product Name</a>
+                                                                </h6>
+                                                                <p>
+                                                                    <span>Brand <strong>:</strong></span>Brand Name
+                                                                </p>
+                                                                <p>
+                                                                    <span>Model <strong>:</strong></span>Grand s2
+                                                                </p>
+                                                                <p>
+                                                                    <span>Color <strong>:</strong></span>Black, White
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="top-cart-inner subtotal">
+                                                        <h4 class="text-uppercase g-font-2">
+                                                            Total  =
+                                                            <span>$ 500.00</span>
+                                                        </h4>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="top-cart-inner view-cart">
+                                                        <h4 class="text-uppercase">
+                                                            <a href="#">View cart</a>
+                                                        </h4>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="top-cart-inner check-out">
+                                                        <h4 class="text-uppercase">
+                                                            <a href="#">Check out</a>
+                                                        </h4>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="c-cart__buttons">
-                            <a href="#" class="button-primary is-small min-width-100px is-ghost md-margin-bottom-small w-inline-block">
-                                <div class="button-primary-text flexv-justify-center">view Cart</div>
-                            </a>
-                            <a href="#" class="button-primary is-small min-width-100px w-inline-block">
-                                <div class="button-primary-text flexv-justify-center">Checkout</div>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
-            <a data-w-id="fc005ed5-8c32-46d8-e974-eceecf05a672" href="#" class="c-nav__close-button w-inline-block">
-                <div class="iconfont is-offcanvas-close-button"><em class="iconfont__no-italize"></em></div>
-            </a>
-        </div>
-        <div class="mobile-navigation-bar">
-            <a href="#" class="brand w-inline-block"><img src="@Url.Content("~/Content/images/-asset-logo-dark.svg")" alt="" class="logo-image"></a>
-            <a data-w-id="fc005ed5-8c32-46d8-e974-eceecf05a67b" href="#" class="burger-button w-inline-block">
-                <div class="iconfont is-burger"><em class="iconfont__no-italize"></em></div>
-            </a>
-        </div>
-    </header>
-
-    <div>
-        @RenderBody()
-    </div>
-
-    <!--Footer-->
-    <footer class="section padding-bottom-16 has-bg-accent">
-        <div class="container margin-bottom">
-            <div class="col lg-4 md-12 no-margin-bottom-lg">
-                <img src="images/-asset-logo-dark.svg" alt="" class="margin-bottom">
-                <div class="low-text-contrast margin-bottom">Jl. &#x27;Alma No.2 <br>Semanding 35, Surabaia<br>Tel: +6281 234 567<br>superly@issupersekaly.com</div>
-                <div class="flex-horizontal low-text-contrast">
-                    <div class="fa-brand margin-right-small"><a href="#"></a></div>
-                    <div class="fa-brand margin-right-small"><a href="#"></a></div>
-                    <div class="fa-brand margin-right-small"><a href="#"></a></div>
-                    <div class="fa-brand margin-right-small"><a href="#"></a></div>
-                </div>
-            </div>
-            <div class="col lg-6 md-12">
-                <div class="container container-nested">
-                    <div class="col lg-4 md-12 no-margin-bottom-lg">
-                        <h4>Categories</h4><a href="#" class="footer-nav-link">Accent chair</a><a href="#" class="footer-nav-link">Ottoman</a><a href="#" class="footer-nav-link">Folding</a><a href="#" class="footer-nav-link">Blluga suede</a>
-                    </div>
-                    <div class="col lg-4 md-12 no-margin-bottom-lg">
-                        <h4>Important links</h4><a href="#" class="footer-nav-link">Shipping &amp; return</a><a href="#" class="footer-nav-link">Affiliate</a><a href="#" class="footer-nav-link">GDPR</a><a href="#" class="footer-nav-link">Tax and handling</a>
-                    </div>
-                    <div class="col lg-4 md-12 no-margin-bottom">
-                        <h4>Company</h4><a href="#" class="footer-nav-link">About</a><a href="#" class="footer-nav-link">Contact</a><a href="#" class="footer-nav-link">Location</a><a href="#" class="footer-nav-link">Carreer</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col lg-2 md-12 flex-vertical no-margin-bottom">
-                <h4 class="margin-bottom">Get Our Store App </h4><img src="https://via.placeholder.com/1000x600.png?text=IMAGE" alt="" class="max-width-200px">
-            </div>
-        </div>
-        <div class="container">
-            <div class="col lg-12 margin-bottom">
-                <div class="hr is-light"></div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="col lg-6 no-margin-bottom md-12 md-order-last">
-                <div class="low-text-contrast text-small flexh-space-between md-flex-vertical">
-                    <div class="md-order-last">©2019 Super sekaly. All rights reserved. </div><a href="#" class="footer-bottom-link">Privacy Policy</a><a href="#" class="footer-bottom-link">Term Of Service</a>
-                </div>
-            </div>
-            <div class="col lg-6 no-margin-bottom md-12">
-                <div class="w100 text-align-right footer-bottom md-text-align-left margin-bottom">Made in Surabaja, Indonesia</div>
-            </div>
-        </div>
-    </footer>
-    <div class="c-overlay">
-        <div class="c-overlay__modal">
+        </header>
+        <!-- END HEADER AREA -->
+        <!-- START MOBILE MENU AREA -->
+        <div class="mobile-menu-area hidden-lg hidden-md">
             <div class="container">
-                <div class="col no-margin-bottom lg-5 sm-12 sm-margin-bottom">
-                    <div data-animation="slide" data-duration="500" data-infinite="1" class="c-slider w-slider">
-                        <div class="w-slider-mask">
-                            <div class="w-slide"><img src="https://via.placeholder.com/1000x600.png?text=IMAGE 1000w" sizes="100vw" alt=""></div>
-                            <div class="w-slide"><img src="https://via.placeholder.com/1000x600.png?text=IMAGE" alt=""></div>
-                            <div class="w-slide"><img src="https://via.placeholder.com/1000x600.png?text=IMAGE" alt=""></div>
-                            <div class="w-slide"><img src="https://via.placeholder.com/1000x600.png?text=IMAGE" alt=""></div>
-                            <div class="w-slide"><img src="https://via.placeholder.com/1000x600.png?text=IMAGE 1000w" sizes="100vw" alt=""></div>
-                        </div>
-                        <div class="c-slider__left-arrow w-slider-arrow-left">
-                            <div class="w-icon-slider-left"></div>
-                        </div>
-                        <div class="c-slider__right-arrow w-slider-arrow-right">
-                            <div class="w-icon-slider-right"></div>
-                        </div>
-                        <div class="c-slider__nav w-slider-nav w-slider-nav-invert w-round"></div>
-                    </div>
-                </div>
-                <div class="col lg-1"></div>
-                <div class="col no-margin-bottom lg-6 sm-12">
-                    <div class="size-h3 margin-bottom-small">Albert Armchair, Nubuck White</div>
-                    <div class="c-product__rating margin-bottom">
-                        <div class="fa is-filled"></div>
-                        <div class="fa is-filled"></div>
-                        <div class="fa is-filled"></div>
-                        <div class="fa is-filled"></div>
-                        <div class="fa is-blank"></div>
-                    </div>
-                    <div class="size-h2 margin-bottom">$120</div>
-                    <p>Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur acidisping vestibulum at eros. Duis mollis, est non sepulaids</p>
-                    <div class="w-form">
-                        <form id="email-form" name="email-form" data-name="Email Form">
-                            <div class="flexh-align-center">
-                                <div class="flexh-align-center margin-right"><a href="#" class="quantity-button is-minus">–</a><input type="text" maxlength="256" name="field" data-name="Field" required="" class="quantity-input w-input"><a href="#" class="quantity-button is-plus">+</a></div><input type="submit" value="Add to cart" data-wait="Please wait..." class="button-primary is-small w-button">
-                            </div>
-                        </form>
-                        <div class="w-form-done">
-                            <div>Thank you! Your submission has been received!</div>
-                        </div>
-                        <div class="w-form-fail">
-                            <div>Oops! Something went wrong while submitting the form.</div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="mobile-menu">
+                            <nav id="dropdown">
+                                <ul>
+                                    <li>
+                                        <a href="index.html">Home</a>
+                                        <ul>
+                                            <li>
+                                                <a href="index.html">Home Version 1</a>
+                                            </li>
+                                            <li>
+                                                <a href="index-2.html">Home Version 2</a>
+                                            </li>
+                                            <li>
+                                                <a href="index-3.html">Home Version 3</a>
+                                            </li>
+                                            <li>
+                                                <a href="index-4.html">Home 4 Animated Text</a>
+                                            </li>
+                                            <li>
+                                                <a href="index-5.html">Home 5 Animated Text Ovlerlay</a>
+                                            </li>
+                                            <li>
+                                                <a href="index-6.html">Home 6 Background Video</a>
+                                            </li>
+                                            <li>
+                                                <a href="index-7.html">Home 7 BG-Video Ovlerlay</a>
+                                            </li>
+                                            <li>
+                                                <a href="index-8.html">Home 8 Boxed-1</a>
+                                            </li>
+                                            <li>
+                                                <a href="index-9.html">Home 9 Gradient</a>
+                                            </li>
+                                            <li>
+                                                <a href="index-10.html">Home 10 Boxed-2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="shop.html">Products</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Pages</a>
+                                        <ul>
+                                            <li>
+                                                <a href="shop.html">Shop</a>
+                                            </li>
+                                            <li>
+                                                <a href="shop-left-sidebar.html">Shop Left Sidebar</a>
+                                            </li>
+                                            <li>
+                                                <a href="shop-right-sidebar.html">Shop Right Sidebar</a>
+                                            </li>
+                                            <li>
+                                                <a href="shop-list.html">Shop List</a>
+                                            </li>
+                                            <li>
+                                                <a href="shop-list-right-sidebar.html">Shop List Right Sidebar</a>
+                                            </li>
+                                            <li>
+                                                <a href="single-product.html">Single Product</a>
+                                            </li>
+                                            <li>
+                                                <a href="single-product-left-sidebar.html">Single Product Left Sidebar</a>
+                                            </li>
+                                            <li>
+                                                <a href="single-product-no-sidebar.html">Single Product No Sidebar</a>
+                                            </li>
+                                            <li>
+                                                <a href="cart.html">Shopping Cart</a>
+                                            </li>
+                                            <li>
+                                                <a href="wishlist.html">Wishlist</a>
+                                            </li>
+                                            <li>
+                                                <a href="checkout.html">Checkout</a>
+                                            </li>
+                                            <li>
+                                                <a href="order.html">Order</a>
+                                            </li>
+                                            <li>
+                                                <a href="login.html">Login</a>
+                                            </li>
+                                            <li>
+                                                <a href="My-account.html">My Account</a>
+                                            </li>
+                                            <li>
+                                                <a href="about.html">About us</a>
+                                            </li>
+                                            <li>
+                                                <a href="404.html">404</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="blog.html">Blog</a>
+                                        <ul>
+                                            <li>
+                                                <a href="blog.html">Blog</a>
+                                            </li>
+                                            <li>
+                                                <a href="blog-left-sidebar.html">Blog Left Sidebar</a>
+                                            </li>
+                                            <li>
+                                                <a href="blog-right-sidebar.html">Blog Right Sidebar</a>
+                                            </li>
+                                            <li>
+                                                <a href="blog-2.html">Blog style 2</a>
+                                            </li>
+                                            <li>
+                                                <a href="blog-2-left-sidebar.html">Blog 2 Left Sidebar</a>
+                                            </li>
+                                            <li>
+                                                <a href="blog-2-right-sidebar.html">Blog 2 Right Sidebar</a>
+                                            </li>
+                                            <li>
+                                                <a href="blog-details.html">Blog Details</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="about.html">About Us</a>
+                                    </li>
+                                    <li>
+                                        <a href="contact.html">Contact</a>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>
             </div>
-            <a data-w-id="202df1b2-468b-88dd-04a0-44fffda14bc3" href="#" class="c-close-btn w-inline-block">
-                <div class="iconfont"><em class="iconfont__no-italize"></em></div>
-            </a>
         </div>
+        <!-- END MOBILE MENU AREA -->
+        @RenderBody()
+        <!-- START FOOTER AREA -->
+        <footer id="footer" class="footer-area">
+            <div class="footer-top">
+                <div class="container-fluid">
+                    <div class="plr-185">
+                        <div class="footer-top-inner gray-bg">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-5 col-sm-4">
+                                    <div class="single-footer footer-about">
+                                        <div class="footer-logo">
+                                            <img src="img/logo/logo.png" alt="">
+                                        </div>
+                                        <div class="footer-brief">
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the subas industry's standard dummy text ever since the 1500s,</p>
+                                            <p>When an unknown printer took a galley of type and If you are going to use a passage of Lorem Ipsum scrambled it to make.</p>
+                                        </div>
+                                        <ul class="footer-social">
+                                            <li>
+                                                <a class="facebook" href="" title="Facebook"><i class="zmdi zmdi-facebook"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="google-plus" href="" title="Google Plus"><i class="zmdi zmdi-google-plus"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="twitter" href="" title="Twitter"><i class="zmdi zmdi-twitter"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="rss" href="" title="RSS"><i class="zmdi zmdi-rss"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 hidden-md hidden-sm">
+                                    <div class="single-footer">
+                                        <h4 class="footer-title border-left">Shipping</h4>
+                                        <ul class="footer-menu">
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>New Products</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Discount Products</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Best Sell Products</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Popular Products</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Manufactirers</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Suppliers</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Special Products</span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-3 col-sm-4">
+                                    <div class="single-footer">
+                                        <h4 class="footer-title border-left">my account</h4>
+                                        <ul class="footer-menu">
+                                            <li>
+                                                <a href="my-account.html"><i class="zmdi zmdi-circle"></i><span>My Account</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="wishlist.html"><i class="zmdi zmdi-circle"></i><span>My Wishlist</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="cart.html"><i class="zmdi zmdi-circle"></i><span>My Cart</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="login.html"><i class="zmdi zmdi-circle"></i><span>Sign In</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="login.html"><i class="zmdi zmdi-circle"></i><span>Registration</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="checkout.html"><i class="zmdi zmdi-circle"></i><span>Check out</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="order.html"><i class="zmdi zmdi-circle"></i><span>Oder Complete</span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <div class="single-footer">
+                                        <h4 class="footer-title border-left">Get in touch</h4>
+                                        <div class="footer-message">
+                                            <form action="#">
+                                                <input type="text" name="name" placeholder="Your name here...">
+                                                <input type="text" name="email" placeholder="Your email here...">
+                                                <textarea class="height-80" name="message" placeholder="Your messege here..."></textarea>
+                                                <button class="submit-btn-1 mt-20 btn-hover-1" type="submit">submit message</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom black-bg">
+                <div class="container-fluid">
+                    <div class="plr-185">
+                        <div class="copyright">
+                            <div class="row">
+                                <div class="col-sm-6 col-xs-12">
+                                    <div class="copyright-text">
+                                        <p>&copy; <a href="https://themeforest.net/user/codecarnival/portfolio" target="_blank">CodeCarnival</a> 2016. All Rights Reserved.</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                    <ul class="footer-payment text-right">
+                                        <li>
+                                            <a href="#"><img src="img/payment/1.jpg" alt=""></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><img src="img/payment/2.jpg" alt=""></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><img src="img/payment/3.jpg" alt=""></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><img src="img/payment/4.jpg" alt=""></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
     </div>
-
-    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js" type="text/javascript" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     @Scripts.Render("~/Content/layouts-scripts")
-    @RenderSection("scripts", required: false)
     @RenderSection("PageScripts", false)
-
-    <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
-    <script>
-        $(document).ready(function () {
-            //set default value of '1'
-            $(".quantity-input").val("1");
-            incrementVar = 0;
-            $('.quantity-button.is-plus').click(function () {
-                var $this = $(this),
-                    $input = $this.prev('input'),
-                    $parent = $input.closest('div'),
-                    newValue = parseInt($input.val()) + 1;
-                $parent.find('.inc').addClass('a' + newValue);
-                $input.val(newValue);
-                incrementVar += newValue;
-            });
-            $('.quantity-button.is-minus').click(function () {
-                var $this = $(this),
-                    $input = $this.next('input'),
-                    $parent = $input.closest('div'),
-                    newValue = parseInt($input.val()) - 1;
-                console.log($parent);
-                $parent.find('.inc').addClass('a' + newValue);
-                $input.val(newValue);
-                incrementVar += newValue;
-            });
-        });
-    </script>
 </body>
 </html>
