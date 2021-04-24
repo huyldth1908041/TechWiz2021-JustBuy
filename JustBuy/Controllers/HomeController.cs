@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JustBuy.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,8 +20,21 @@ namespace JustBuy.Controllers
 
         public ActionResult Index()
         {
+            var listProduct = _db.Products.Where(p => p.Status == Product.ProductStatus.Active).ToList();
+            if(listProduct == null || listProduct.Count() < 3)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            var listCategory = _db.Categories.Where(c => c.Status == Category.CategoryStatus.Active).ToList();
+            var viewModel = new HomePageViewModel
+            {
+                Categories = listCategory,
+                TopFiveNewestProduct = listProduct.OrderBy(p => p.CreatedAt).Take(5).ToList(),
+                TwoFeatureProduct = listProduct.Take(2).ToList(),
+                TopThreeNewestProducts = listProduct.OrderBy(p => p.CreatedAt).Take(3).ToList(),
 
-            return View();
+            };
+            return View(viewModel);
         }
         [Authorize]
         public ActionResult About()
