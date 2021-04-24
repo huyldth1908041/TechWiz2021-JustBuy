@@ -165,11 +165,24 @@
     <Compile Include="Migrations\202104240412172_Init_Authentication_Tables_Owin_Context.Designer.cs">
       <DependentUpon>202104240412172_Init_Authentication_Tables_Owin_Context.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104240853069_Add_Product_And_Cart_Logic_Models.cs" />
+    <Compile Include="Migrations\202104240853069_Add_Product_And_Cart_Logic_Models.Designer.cs">
+      <DependentUpon>202104240853069_Add_Product_And_Cart_Logic_Models.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104240858126_Change_Foreign_Key_Property.cs" />
+    <Compile Include="Migrations\202104240858126_Change_Foreign_Key_Property.Designer.cs">
+      <DependentUpon>202104240858126_Change_Foreign_Key_Property.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDataContext.cs" />
     <Compile Include="Models\AppRole.cs" />
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\AuthenticationModels.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\FeedBack.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -279,6 +292,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202104240412172_Init_Authentication_Tables_Owin_Context.resx">
       <DependentUpon>202104240412172_Init_Authentication_Tables_Owin_Context.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104240853069_Add_Product_And_Cart_Logic_Models.resx">
+      <DependentUpon>202104240853069_Add_Product_And_Cart_Logic_Models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104240858126_Change_Foreign_Key_Property.resx">
+      <DependentUpon>202104240858126_Change_Foreign_Key_Property.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
