@@ -29,7 +29,7 @@ namespace JustBuy.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
         [Required]
-        [Display(Name ="Full name")]
+        [Display(Name = "Full name")]
         public string FullName { get; set; }
 
         [Required]
@@ -38,7 +38,7 @@ namespace JustBuy.Models
 
         [Required]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
-        [Display(Name ="Contact Number")]
+        [Display(Name = "Contact Number")]
         public string Phone { get; set; }
 
         [Required]
@@ -51,6 +51,24 @@ namespace JustBuy.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+    }
+
+    public class UpdateProfileViewModel
+    {
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+        [Required]
+        [Display(Name = "Full name")]
+        public string FullName { get; set; }
+
+        [Required]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
+        [Display(Name = "Contact Number")]
+        public string Phone { get; set; }
+        [Required]
+        public string Address { get; set; }
 
 
     }

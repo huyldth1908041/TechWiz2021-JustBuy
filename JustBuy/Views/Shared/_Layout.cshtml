@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>JustBuy</title>
     <!-- Latest compiled and minified CSS -->
 
     @Styles.Render("~/Content/layouts-styles")
@@ -17,30 +17,13 @@
     @RenderSection("PageStyles", false)
 </head>
 <body>
-    <div class="c-topbar bg-is-brand-color">
-        <div class="container flexh-align-center on-dark">
-            <div class="col no-margin-bottom flex-horizontal lg-3">
-                <div class="icomoon margin-right-small"></div>
-                <div><a href="tel:+181231350601233" class="link on-dark">+1 8123 135060 1233</a></div>
-            </div>
-            <div class="col no-margin-bottom lg-6">
-                <div class="text-align-center">First Time Buyer? Use &#x27;FIRST&#x27; promocode to instantly get 90% OFF!</div>
-            </div>
-            <div class="col no-margin-bottom lg-3 flexh-justify-end">
-                <img src="images/-asset-clock.svg" width="16" alt="" class="margin-right-small">
-                <div class="flex-horizontal md-is-wrapping">
-                    <div class="weight-is-medium margin-right-small">Today only!</div>
-                    <div>Free shipping worldwide</div>
-                </div>
-            </div>
-        </div>
-    </div>
     <header class="navigation-section">
         <div class="navigation-overlay"></div>
         <div class="navigation-and-offcanvas">
-            <div class="col lg-2 md-basis-auto md-order-first no-margin-bottom-lg"><a href="#" class="brand justify-left w-inline-block"><img src="images/-asset-logo-dark.svg" alt=""></a></div>
+            <div class="col lg-2 md-basis-auto md-order-first no-margin-bottom-lg"><a href="#" class="brand justify-left w-inline-block"><img src="@Url.Content("~/Content/images/-asset-logo-dark.svg")" alt=""></a></div>
             <div class="col no-margin-bottom lg-8 md-basis-auto md-order-last">
                 <nav class="navigation-menu flexh-justify-center position-relative">
+
                     <a href="index.html" class="nav-link w--current">Home</a>
                     <div data-hover="1" data-delay="0" data-w-id="fc005ed5-8c32-46d8-e974-eceecf05a618" class="nav-dropdown has-megamenu w-dropdown">
                         <div class="nav-dropdown-toggle w-dropdown-toggle">
@@ -75,11 +58,14 @@
                         </div>
                         <nav class="dropdown-list w-dropdown-list"><a href="lookbook.html" class="dropdown-link w-dropdown-link">Lookbook</a><a href="single-post.html" class="dropdown-link w-dropdown-link">Single post</a></nav>
                     </div>
+
+
+
                 </nav>
             </div>
-            <div class="col no-margin-bottom lg-2 lg-text-align-right md-basis-auto">
+            <div class="col no-margin-bottom lg-3 lg-text-align-right md-basis-auto">
                 <div class="inline-block position-relative">
-                    <a data-w-id="fc005ed5-8c32-46d8-e974-eceecf05a66c" href="#" class="c-navbar-icon"></a>
+
                     <div class="c-search-popup w-form">
                         <form id="email-form-2" name="email-form-2" data-name="Email Form 2"><input type="text" class="form-input-text w-input" maxlength="256" name="Search-2" data-name="Search 2" placeholder="Search product" id="Search-2"></form>
                         <div class="w-form-done">
@@ -92,8 +78,25 @@
                             <div><em class="iconfont__no-italize"></em></div>
                         </a>
                     </div>
-                </div><a href="#" class="c-navbar-icon is-19px"></a>
-                <div data-w-id="11f9c14f-6862-95c1-4399-a7985f01b570" class="c-cart">
+                </div>
+
+                <div data-hover="1" data-delay="0" class="nav-dropdown w-dropdown" style="display: inline-block !important">
+                    <div class="nav-dropdown-toggle w-dropdown-toggle" style="display: inline">
+                        <a href="/" class="nav-link-block w-inline-block c-navbar-icon is-19px">
+                             @User.Identity.Name
+                        </a>
+                    </div>
+                    <nav class="dropdown-list w-dropdown-list">
+                        <a href="@Url.Action("UpdateProfile", "Account")" class="dropdown-link w-dropdown-link">Edit Profile</a>
+                        <form action="@Url.Action("LogOff", "Account")" method="post">
+                            @Html.AntiForgeryToken()
+                            <button class="dropdown-link w-dropdown-link" type="submit" style="background-color: transparent">Logout</button>
+                        </form>
+     
+                    </nav>
+                </div>
+
+                <div data-w-id="11f9c14f-6862-95c1-4399-a7985f01b570" class="c-cart inline-block position-relative" style="display: inline-block">
                     <a href="#" class="c-navbar-icon"></a>
                     <div class="c-cart__dropdown">
                         <div class="c-cart__item">
@@ -134,7 +137,7 @@
             </a>
         </div>
         <div class="mobile-navigation-bar">
-            <a href="#" class="brand w-inline-block"><img src="images/-asset-logo-dark.svg" alt="" class="logo-image"></a>
+            <a href="#" class="brand w-inline-block"><img src="@Url.Content("~/Content/images/-asset-logo-dark.svg")" alt="" class="logo-image"></a>
             <a data-w-id="fc005ed5-8c32-46d8-e974-eceecf05a67b" href="#" class="burger-button w-inline-block">
                 <div class="iconfont is-burger"><em class="iconfont__no-italize"></em></div>
             </a>

@@ -6,6 +6,7 @@ using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
@@ -107,6 +108,49 @@ namespace JustBuy.Controllers
             var authManager = HttpContext.GetOwinContext().Authentication;
             authManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Login");
+        }
+        [Authorize]
+        [HttpGet]
+        public async System.Threading.Tasks.Task<ActionResult> UpdateProfile()
+        {
+            var userManager = HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
+            var authManager = HttpContext.GetOwinContext().Authentication;
+            var user = await userManager.FindByIdAsync(User.Identity.GetUserId());
+            if(user == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+            }
+            var viewModel = new UpdateProfileViewModel
+            {
+                Address = user.Address,
+                Email = user.Email,
+                FullName = user.FullName,
+                Phone = user.Phone
+            };
+            return View(viewModel);
+        }
+        [HttpPost]
+        [Authorize]
+        public async System.Threading.Tasks.Task<ActionResult> UpdateProfile(UpdateProfileViewModel model)
+        {
+            var userManager = HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
+            var authManager = HttpContext.GetOwinContext().Authentication;
+            var currentUser = await userManager.FindByIdAsync(User.Identity.GetUserId());
+            if (currentUser == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+            }
+            if(!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            //update
+            currentUser.Address = model.Address;
+            currentUser.FullName = model.FullName;
+            currentUser.Phone = model.Phone;
+            currentUser.Email = model.Email;
+            userManager.Update(currentUser);
+            return RedirectToAction("Index", "Home");
         }
     }
 }
