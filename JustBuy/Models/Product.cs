@@ -34,6 +34,8 @@ namespace JustBuy.Models
         public int CategoryId{ get; set; }
         public virtual Category Category { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public DateTime LaunchDate { get; set; }
+
 
     }
 }

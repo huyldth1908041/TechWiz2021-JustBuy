@@ -173,6 +173,10 @@
     <Compile Include="Migrations\202104240858126_Change_Foreign_Key_Property.Designer.cs">
       <DependentUpon>202104240858126_Change_Foreign_Key_Property.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104240925306_Add-LaunchDate-To-Products-Table.cs" />
+    <Compile Include="Migrations\202104240925306_Add-LaunchDate-To-Products-Table.Designer.cs">
+      <DependentUpon>202104240925306_Add-LaunchDate-To-Products-Table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDataContext.cs" />
     <Compile Include="Models\AppRole.cs" />
@@ -298,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104240858126_Change_Foreign_Key_Property.resx">
       <DependentUpon>202104240858126_Change_Foreign_Key_Property.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104240925306_Add-LaunchDate-To-Products-Table.resx">
+      <DependentUpon>202104240925306_Add-LaunchDate-To-Products-Table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
