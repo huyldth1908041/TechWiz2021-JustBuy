@@ -25,6 +25,15 @@ namespace JustBuy
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Content/layouts-styles").Include(
+                    "~/Content/css/normalize.css",
+                    "~/Content/css/components.css",
+                    "~/Content/css/rylee-template.css"
+                   ));
+
+            bundles.Add(new ScriptBundle("~/Content/layouts-scripts").Include(
+                    "~/Content/js/rylee-template.js"
+                ));
         }
     }
 }

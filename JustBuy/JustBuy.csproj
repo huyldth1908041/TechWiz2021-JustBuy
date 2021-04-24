@@ -33,7 +33,7 @@
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>1</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -131,12 +131,69 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\components.css" />
+    <Content Include="Content\css\normalize.css" />
+    <Content Include="Content\css\rylee-template.css" />
+    <Content Include="Content\fonts\asas.svg" />
+    <Content Include="Content\fonts\fa-brands-400.svg" />
+    <Content Include="Content\fonts\fa-regular-400.svg" />
+    <Content Include="Content\fonts\fa-solid-900.svg" />
+    <Content Include="Content\fonts\fontello.svg" />
+    <Content Include="Content\fonts\icomoon.svg" />
+    <Content Include="Content\images\-asset-check.svg" />
+    <Content Include="Content\images\-asset-chevron.svg" />
+    <Content Include="Content\images\-asset-clock.svg" />
+    <Content Include="Content\images\-asset-coupon.svg" />
+    <Content Include="Content\images\-asset-lens.svg" />
+    <Content Include="Content\images\-asset-logo-dark.svg" />
+    <Content Include="Content\js\rylee-template.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\fonts\asas.eot" />
+    <Content Include="Content\fonts\asas.ttf" />
+    <Content Include="Content\fonts\asas.woff" />
+    <Content Include="Content\fonts\fa-brands-400.eot" />
+    <Content Include="Content\fonts\fa-brands-400.ttf" />
+    <Content Include="Content\fonts\fa-brands-400.woff" />
+    <Content Include="Content\fonts\fa-brands-400.woff2" />
+    <Content Include="Content\fonts\fa-regular-400.eot" />
+    <Content Include="Content\fonts\fa-regular-400.ttf" />
+    <Content Include="Content\fonts\fa-regular-400.woff" />
+    <Content Include="Content\fonts\fa-regular-400.woff2" />
+    <Content Include="Content\fonts\fa-solid-900.eot" />
+    <Content Include="Content\fonts\fa-solid-900.ttf" />
+    <Content Include="Content\fonts\fa-solid-900.woff" />
+    <Content Include="Content\fonts\fa-solid-900.woff2" />
+    <Content Include="Content\fonts\fontello.eot" />
+    <Content Include="Content\fonts\fontello.ttf" />
+    <Content Include="Content\fonts\fontello.woff" />
+    <Content Include="Content\fonts\fontello.woff2" />
+    <Content Include="Content\fonts\icomoon.eot" />
+    <Content Include="Content\fonts\icomoon.ttf" />
+    <Content Include="Content\fonts\icomoon.woff" />
+    <Content Include="Content\fonts\Metropolis-Black.woff" />
+    <Content Include="Content\fonts\Metropolis-BlackItalic.woff" />
+    <Content Include="Content\fonts\Metropolis-Bold.woff" />
+    <Content Include="Content\fonts\Metropolis-BoldItalic.woff" />
+    <Content Include="Content\fonts\Metropolis-ExtraBold.woff" />
+    <Content Include="Content\fonts\Metropolis-ExtraBoldItalic.woff" />
+    <Content Include="Content\fonts\Metropolis-ExtraLight.woff" />
+    <Content Include="Content\fonts\Metropolis-ExtraLightItalic.woff" />
+    <Content Include="Content\fonts\Metropolis-Light.woff" />
+    <Content Include="Content\fonts\Metropolis-LightItalic.woff" />
+    <Content Include="Content\fonts\Metropolis-Medium.woff" />
+    <Content Include="Content\fonts\Metropolis-MediumItalic.woff" />
+    <Content Include="Content\fonts\Metropolis-Regular.woff" />
+    <Content Include="Content\fonts\Metropolis-RegularItalic.woff" />
+    <Content Include="Content\fonts\Metropolis-SemiBold.woff" />
+    <Content Include="Content\fonts\Metropolis-SemiBoldItalic.woff" />
+    <Content Include="Content\fonts\Metropolis-Thin.woff" />
+    <Content Include="Content\fonts\Metropolis-ThinItalic.woff" />
+    <Content Include="Content\images\.DS_Store" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
