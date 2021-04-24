@@ -8,8 +8,18 @@ namespace JustBuy.Controllers
 {
     public class HomeController : Controller
     {
+        private static AppDataContext _db;
+        public HomeController()
+        {
+            if (_db == null)
+            {
+                _db = new AppDataContext();
+            }
+        }
+
         public ActionResult Index()
         {
+
             return View();
         }
         [Authorize]
