@@ -1,4 +1,7 @@
-﻿using JustBuy.Models;
+﻿using JustBuy.IdentityConfig;
+using JustBuy.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +35,6 @@ namespace JustBuy.Controllers
                 TopFiveNewestProduct = listProduct.OrderBy(p => p.CreatedAt).Take(5).ToList(),
                 TwoFeatureProduct = listProduct.Take(2).ToList(),
                 TopThreeNewestProducts = listProduct.OrderBy(p => p.CreatedAt).Take(3).ToList(),
-
             };
             return View(viewModel);
         }
