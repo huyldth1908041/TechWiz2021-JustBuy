@@ -1,0 +1,104 @@
+﻿@model  PagedList.IPagedList<JustBuy.Models.Product>
+@using PagedList.Mvc;
+
+<!-- grid-view -->
+<div role="tabpanel" class="tab-pane active" id="grid-view">
+    <div class="row">
+        @if (Model.Count() == 0)
+        {
+            <p>Not Found</p>
+        }
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="product-item">
+                    <div class="product-img">
+                        <a href="@Url.Action("Detail", "Product", new { id = item.Id })">
+                            <img src="@item.GetAllImages().FirstOrDefault()" alt="" />
+                        </a>
+                    </div>
+                    <div class="product-info">
+                        <h6 class="product-title">
+                            <a href="@Url.Action("Detail", "Product", new { id = item.Id })">@item.Name </a>
+                        </h6>
+                        <div class="pro-rating">
+                            <a href="#"><i class="zmdi zmdi-star"></i></a>
+                            <a href="#"><i class="zmdi zmdi-star"></i></a>
+                            <a href="#"><i class="zmdi zmdi-star"></i></a>
+                            <a href="#"><i class="zmdi zmdi-star-half"></i></a>
+                            <a href="#"><i class="zmdi zmdi-star-outline"></i></a>
+                        </div>
+                        <h3 class="pro-price">@item.Price.ToString("C2")</h3>
+                        <ul class="action-button">
+                            <li>
+                                <a href="#" title="Wishlist"><i class="zmdi zmdi-favorite"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" data-toggle="modal" data-target=".@item.Id" title="Quickview"><i class="zmdi zmdi-zoom-in"></i></a>
+                            </li>
+
+                            <li>
+                                <a href="#" title="Add to cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+<!-- list-view -->
+<div role="tabpanel" class="tab-pane" id="list-view">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <!-- product-item start -->
+            <div class="col-md-12">
+                <div class="shop-list product-item">
+                    <div class="product-img">
+                        <a href="@Url.Action("Detail", "Product", new { id = item.Id })">
+                            <img src="@item.GetAllImages().FirstOrDefault()" alt="" />
+                        </a>
+                    </div>
+                    <div class="product-info">
+                        <div class="clearfix">
+                            <h6 class="product-title f-left">
+                                <a href="@Url.Action("Detail", "Product", new { id = item.Id })">@item.Name </a>
+                            </h6>
+                            <div class="pro-rating f-right">
+                                <a href="#"><i class="zmdi zmdi-star"></i></a>
+                                <a href="#"><i class="zmdi zmdi-star"></i></a>
+                                <a href="#"><i class="zmdi zmdi-star"></i></a>
+                                <a href="#"><i class="zmdi zmdi-star-half"></i></a>
+                                <a href="#"><i class="zmdi zmdi-star-outline"></i></a>
+                            </div>
+                        </div>
+                        <h6 class="brand-name mb-30">@item.Category.Name</h6>
+                        <h3 class="pro-price">@item.Price.ToString("C2")</h3>
+                        <p>@item.Description</p>
+                        <ul class="action-button">
+                            <li>
+                                <a href="#" title="Wishlist"><i class="zmdi zmdi-favorite"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" data-toggle="modal" data-target=".@item.Id" title="Quickview"><i class="zmdi zmdi-zoom-in"></i></a>
+                            </li>
+
+                            <li>
+                                <a href="#" title="Add to cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- product-item end -->
+        }
+
+
+    </div>
+</div>
+<script>
+    var paginate = document.querySelector(".pagination-container");
+    paginate.style.display = "none";
+</script>

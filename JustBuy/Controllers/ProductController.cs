@@ -2,6 +2,7 @@
 using PagedList;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -107,6 +108,26 @@ namespace JustBuy.Controllers
             ViewBag.End = end;
 
             return View(listResult.ToPagedList(pageNumber, pageSize));
+        }
+
+        //ajax call only
+        public ActionResult Search(string name, int? page)
+        {
+            if (page == null) page = 1;
+            int pageSize = 6;
+            int pageNumber = (page ?? 1);
+            IEnumerable<Product> result;
+            var listProducts = _db.Products.Where(p => p.Status == Product.ProductStatus.Active).ToList();
+            Debug.WriteLine(name);
+            if(name != null && name.Length != 0)
+            {
+                result = listProducts.Where(p => p.Name.ToLower().Contains(name.ToLower()));
+            }
+            else
+            {
+                result = listProducts;
+            }
+            return PartialView(result.ToPagedList(pageNumber, pageSize));
         }
     }
 }

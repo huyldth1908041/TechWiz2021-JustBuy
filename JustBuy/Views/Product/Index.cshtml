@@ -54,7 +54,7 @@
                         </div>
                         <!-- shop-option end -->
                         <!-- Tab Content start -->
-                        <div class="tab-content">
+                        <div class="tab-content" id="product-container">
                             <!-- grid-view -->
                             <div role="tabpanel" class="tab-pane active" id="grid-view">
                                 <div class="row">
@@ -162,10 +162,19 @@
                 <div class="col-md-3 col-xs-12">
                     <!-- widget-search -->
                     <aside class="widget-search mb-30">
-                        <form action="#">
-                            <input type="text" placeholder="Search here...">
+                       
+                        @using (Ajax.BeginForm("Search", "Product", new AjaxOptions
+                        {
+                            InsertionMode = InsertionMode.Replace,
+                            HttpMethod = "GET",
+                            LoadingElementId = "imgloader",
+                         
+                            UpdateTargetId = "product-container",
+                        }))
+                        {
+                            <input type="text" placeholder="Search here..." name="name">
                             <button type="submit"><i class="zmdi zmdi-search"></i></button>
-                        </form>
+                        }
                     </aside>
                     <!-- operating-system -->
                     <aside class="widget operating-system box-shadow mb-30">
