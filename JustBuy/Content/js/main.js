@@ -360,11 +360,6 @@
         mute: true,
         loop: true,
     });
-
-    $('li#account').hover(function () {
-        $(this).children('ul').toggleClass('dropdown')
-    });
-
 })(jQuery);
 
 

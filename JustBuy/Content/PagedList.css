@@ -183,28 +183,3 @@
 .sticky .logo {
     padding: 0;
 }
-
-li#account {
-    position: relative;
-}
-
-    li#account ul {
-        position: absolute;
-        width: 100%;
-        top: 42px;
-        opacity: 0;
-        background-color: #ff7f00;
-        visibility: hidden;
-    }
-
-        li#account ul.dropdown {
-            opacity: 1;
-            visibility: visible;
-        }
-
-            li#account ul.dropdown li a {
-                font-size: 12px;
-                color: black;
-                padding: 5px 10px;
-                width: 100%;
-            }
