@@ -2,10 +2,12 @@
 @using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
-    List<JustBuy.Models.Category> listCategory = (List<JustBuy.Models.Category>) ViewBag.ListCate;
-    int total = (int) ViewBag.ToTal;
+    List<JustBuy.Models.Category> listCategory = (List<JustBuy.Models.Category>)ViewBag.ListCate;
+    int total = (int)ViewBag.ToTal;
 
 }
+
+<link href="@Url.Content("~/Content/PagedList.css")" rel="stylesheet" />
 
 <!-- BREADCRUMBS SETCTION START -->
 <div class="breadcrumbs-section plr-200 mb-80">
@@ -46,7 +48,7 @@
                                     <a href="#list-view" data-toggle="tab"><i class="zmdi zmdi-view-list-alt"></i></a>
                                 </li>
                             </ul>
-                      
+
                             <!-- showing -->
                             <div class="showing f-right text-right">
                                 <span>Showing : @Model.Count() of @total</span>
@@ -162,13 +164,13 @@
                 <div class="col-md-3 col-xs-12">
                     <!-- widget-search -->
                     <aside class="widget-search mb-30">
-                       
+
                         @using (Ajax.BeginForm("Search", "Product", new AjaxOptions
                         {
                             InsertionMode = InsertionMode.Replace,
                             HttpMethod = "GET",
                             LoadingElementId = "imgloader",
-                         
+
                             UpdateTargetId = "product-container",
                         }))
                         {
@@ -287,4 +289,3 @@
 </div>
 
 <!-- END QUICKVIEW PRODUCT -->
-

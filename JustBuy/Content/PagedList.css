@@ -183,7 +183,21 @@
 .sticky .logo {
     padding: 0;
 }
+
 .breadcrumbs {
     background: #f6f6f6 url("bannerProduct.jpg") no-repeat scroll center center;
     background-size: 80%;
+}
+
+.team-member-photo {
+    height: 222px;
+    overflow: hidden;
+}
+
+    .team-member-photo img {
+        width: 100%;
+    }
+
+.slider-img {
+    width: 42%;
 }

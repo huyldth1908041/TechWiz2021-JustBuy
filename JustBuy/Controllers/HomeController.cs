@@ -38,7 +38,6 @@ namespace JustBuy.Controllers
             };
             return View(viewModel);
         }
-        [Authorize]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
