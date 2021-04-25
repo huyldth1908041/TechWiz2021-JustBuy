@@ -101,15 +101,18 @@
                                     <hr>
                                     <!-- plus-minus-pro-action -->
                                     <div class="plus-minus-pro-action">
-                                        <div class="sin-plus-minus f-left clearfix">
-                                            <p class="color-title f-left">Qty</p>
-                                            <div class="cart-plus-minus f-left">
-                                                <input type="text" value="02" name="qtybutton" class="cart-plus-minus-box">
+                                        <form action="@Url.Action("CreateOrder", "Order")" method="post">
+                                            <input type="hidden" name="productId" value="@Model.Id" />
+                                            <div class="sin-plus-minus f-left clearfix">
+                                                <p class="color-title f-left">Qty</p>
+                                                <div class="cart-plus-minus f-left">
+                                                    <input type="text" value="02" name="quantity" class="cart-plus-minus-box">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="sin-pro-action f-right">
-                                            <button class="btn btn-danger">Buy Now</button>
-                                        </div>
+                                            <div class="sin-pro-action f-right">
+                                                <button class="btn btn-danger" type="submit">Add To Cart</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

@@ -10,7 +10,7 @@ namespace JustBuy.Models
     {
         public int Id { get; set; }
         //forein key
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         //navigation property
         public virtual AppUser User { get; set; }
         [Range(0, double.MaxValue, ErrorMessage = "Please enter valid doubleNumber")]
@@ -20,12 +20,15 @@ namespace JustBuy.Models
         {
             Pending = 0,
             Done = 1,
+            Processing = 2,
             Canceled = -1,
         }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
         [Required]
         public OrderPaymentMethod PaymentMethod { get; set; }
+
+        public double ShippingFee { get; set; }
         public enum OrderPaymentMethod
         {
             [Display(Name ="Card")]
@@ -36,5 +39,40 @@ namespace JustBuy.Models
         public DateTime DeliveryDate { get; set; }
         //navigation
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+
+        public double CalculateTotalPrice()
+        {
+            var listOrdertails = this.OrderDetails.ToList();
+            if( listOrdertails == null || listOrdertails.Count() == 0)
+            {
+                return 0;
+            }
+            double totalPrice = 0;
+            foreach(var item in listOrdertails)
+            {
+                totalPrice += item.CalculateTotalPrice();
+            }
+            totalPrice += this.ShippingFee;
+            this.TotalPrice = totalPrice;
+            return this.TotalPrice;
+        }
+        public double GetTotalCartPrice()
+        {
+            var listOrdertails = this.OrderDetails.ToList();
+            if(listOrdertails == null || listOrdertails.Count() == 0)
+            {
+                return 0;
+            }
+            double totalPrice = 0;
+            foreach (var item in listOrdertails)
+            {
+                totalPrice += item.CalculateTotalPrice();
+            }
+            return totalPrice;
+
+        }
+
+
+
     }
 }

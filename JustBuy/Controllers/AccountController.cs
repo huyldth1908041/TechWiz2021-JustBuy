@@ -17,13 +17,14 @@ namespace JustBuy.Controllers
     {
         // GET: Account
         [AllowAnonymous]
-        public ActionResult Login()
+        public ActionResult Login(string returnUrl)
         {
+            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginViewModel login)
+        public ActionResult Login(LoginViewModel login, string returnUrl)
         {
             if (!ModelState.IsValid)
             {
@@ -40,12 +41,22 @@ namespace JustBuy.Controllers
                 //use the instance that has been created. 
                 authManager.SignIn(
                     new AuthenticationProperties { IsPersistent = login.RememberMe }, ident);
-                return Redirect(Url.Action("Index", "Home"));
+                return RedirectToLocal(returnUrl);
             }
 
             ModelState.AddModelError("", "Invalid username or password");
             return View(login);
         }
+
+        private ActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
         [AllowAnonymous]
         public ActionResult Register()
         {
