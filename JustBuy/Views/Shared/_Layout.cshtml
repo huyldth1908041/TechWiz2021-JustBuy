@@ -35,34 +35,28 @@
                                 <ul class="link f-right">
                                     @if (Request.IsAuthenticated)
                                     {
-                                        <li>
-                                            <a href="my-account.html">
+                                        <li id="account">
+                                            <a href="" class="account">
                                                 <i class="zmdi zmdi-account"></i>
-                                                My Account
+                                                @User.Identity.Name
                                             </a>
-                                            <ul class="dropdwn">
+                                            <ul>
                                                 <li>
-                                                    <a href="index.html">Home Version 1</a>
-                                                </li>
-                                                <li>
-                                                    <a href="index-2.html">Home Version 2</a>
-                                                </li>
-                                                <li>
-                                                    <a href="index-3.html">Home Version 3</a>
+                                                    <a href=@Url.Content("~/Account/UpdateProfile")>Edit Profile</a>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li>
                                             <a href="wishlist.html">
                                                 <i class="zmdi zmdi-favorite"></i>
-                                                Wish List (0)
+                                                Wish List
                                             </a>
                                         </li>
 
                                         <li>
                                             <form action="@Url.Action("LogOff", "Account")" method="post">
                                                 @Html.AntiForgeryToken()
-                                                    <button type="submit"><a><i class="zmdi zmdi-lock-open"></i>Logout</a></button>
+                                                <button type="submit"><a><i class="zmdi zmdi-lock-open"></i>Logout</a></button>
                                             </form>
                                         </li>
                                     }
