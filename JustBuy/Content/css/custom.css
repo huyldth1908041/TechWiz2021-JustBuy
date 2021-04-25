@@ -13,3 +13,43 @@ Note: This is the file where you can add your custom styles to change the look o
 /* ----------------------------------------------------
 	You can put your custom css code here: 
 -------------------------------------------------------*/
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 4px rgb(0 0 0 / 10%);
+   padding: 10px;
+ 
+}
+.pagination {
+    margin:  0 !important;
+}
+.pagination > li {
+    display: inline-block;
+    margin-right: 3px;
+}
+
+    .pagination > li > a {
+        border: 1px solid #eee;
+        color: #999999;
+        display: block;
+        font-family: roboto;
+        font-size: 13px;
+        font-weight: 400;
+        height: 30px;
+        text-align: center;
+        width: 30px;
+    }
+
+.pagination > .active > a, .pagination > .active > a:hover {
+    border-color: #ff7f00 !important;
+    color: #ff7f00 !important;
+    background-color: transparent;
+}
+
+.pagination > li > a:hover {
+    border-color: #ff7f00 !important;
+    color: #ff7f00 !important;
+    background-color: transparent;
+}
