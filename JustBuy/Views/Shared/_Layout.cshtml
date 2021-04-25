@@ -62,9 +62,7 @@
                                         <li>
                                             <form action="@Url.Action("LogOff", "Account")" method="post">
                                                 @Html.AntiForgeryToken()
-                                                <a>
-                                                    <button type="submit" class="dropdown-item"><i class="zmdi zmdi-lock-open"></i>Logout</button>
-                                                </a>
+                                                    <button type="submit"><a><i class="zmdi zmdi-lock-open"></i>Logout</a></button>
                                             </form>
                                         </li>
                                     }
