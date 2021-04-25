@@ -1,0 +1,220 @@
+﻿@model IEnumerable<JustBuy.Models.OrderDetail>
+@{
+
+    JustBuy.Models.Order order = (JustBuy.Models.Order)ViewBag.Order;
+}
+<!-- BREADCRUMBS SETCTION START -->
+<div class="breadcrumbs-section plr-200 mb-80">
+    <div class="breadcrumbs overlay-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="breadcrumbs-inner">
+                        <h1 class="breadcrumbs-title">Shopping Cart</h1>
+                        <ul class="breadcrumb-list">
+                            <li><a href="index.html">Home</a></li>
+                            <li>Shopping Cart</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- BREADCRUMBS SETCTION END -->
+<!-- Start page content -->
+<section id="page-content" class="page-wrapper">
+
+    <!-- SHOP SECTION START -->
+    <div class="shop-section mb-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-sm-12">
+                    <ul class="cart-tab">
+                        <li>
+                            <a class="active" href="#shopping-cart">
+                                <span>01</span>
+                                Shopping cart
+                            </a>
+                        </li>
+          
+                        <li>
+                            <a href="@Url.Action("Checkout", new { id = order.Id })" >
+                                <span>02</span>
+                                Checkout
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#disable" data-toggle="tab">
+                                <span>03</span>
+                                Order complete
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-10 col-sm-12">
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <!-- shopping-cart start -->
+                        <div class="tab-pane active" id="shopping-cart">
+                            <div class="shopping-cart-content">
+                                <div id="cart">
+                                    <div class="table-content table-responsive mb-50">
+                                        <table class="text-center">
+                                            <thead>
+                                                <tr>
+                                                    <th class="product-thumbnail">product</th>
+                                                    <th class="product-price">price</th>
+                                                    <th class="product-quantity">Quantity</th>
+                                                    <th class="product-subtotal">total</th>
+                                                    <th class="product-remove">remove</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                @foreach (var item in Model)
+                                                {
+                                                    <!-- tr -->
+                                                    <tr>
+                                                        <td class="product-thumbnail">
+                                                            <div class="pro-thumbnail-img">
+                                                                <img src="@item.Product.GetSmallImage()" alt="">
+                                                            </div>
+                                                            <div class="pro-thumbnail-info text-left">
+                                                                <h6 class="product-title-2">
+                                                                    <a href="#">@item.Product.Name</a>
+                                                                </h6>
+                                                                <p>Category: @item.Product.Category.Name</p>
+                                                                <p>Model: Grand s2</p>
+                                                                <p> Color: Black, White</p>
+                                                            </div>
+                                                        </td>
+                                                        <td class="product-price">@item.Product.Price.ToString("C2")</td>
+                                                        <td class="product-quantity">
+
+                                                            <input type="number" value="@item.Quantity" name="qtybutton" min="1" style="width: 65px; padding-left: 15px;">
+                                                            <input type="hidden" name="orderDetailId" value="@item.Id" />
+                                                        </td>
+                                                        <td class="product-subtotal">@item.CalculateTotalPrice().ToString("C2")</td>
+                                                        <td class="product-remove">
+                                                            <a href="#"><i class="zmdi zmdi-close"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                }
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+                                            <div class="payment-details box-shadow p-30 mb-50">
+                                                <h6 class="widget-title border-left mb-20">payment details</h6>
+                                                <table>
+                                                    <tr>
+                                                        <td class="td-title-1">Cart Subtotal</td>
+                                                        <td class="td-title-2">@order.GetTotalCartPrice().ToString("C2")</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="td-title-1">Shipping and Handing</td>
+                                                        <td class="td-title-2">@order.ShippingFee.ToString("C2")</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="td-title-1">Vat</td>
+                                                        <td class="td-title-2">$00.00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="order-total">Order Total</td>
+                                                        <td class="order-total-price">@order.TotalPrice.ToString("C2")</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                          
+                                    <a href="@Url.Action("Checkout", "Order", new { id = order.Id})">
+                               
+                                        <button class="submit-btn-1 mt-30 btn-hover-1 col-md-2 col-md-offset-10" type="submit">Next Step</button>
+
+                                    </a>
+                                                                       
+                                </div>
+                            </div>
+                        </div>
+                        <!-- shopping-cart end -->
+                 
+                        <!-- checkout start -->
+                
+                        <!-- checkout end -->
+                        <!-- order-complete start -->
+                
+                        <!-- order-complete end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SHOP SECTION END -->
+
+</section>
+<!-- End page content -->
+@section PageScripts{
+    <script>
+
+        function assignEvent() {
+            const quantityInputEls = document.querySelectorAll("input[name='qtybutton']");
+            for (let i = 0; i < quantityInputEls.length; i++) {
+                const current = quantityInputEls[i];
+                console.log(current)
+                current.addEventListener("change", update)
+            }
+        }
+        assignEvent();
+
+        function update(e) {
+      
+            var target = e.target;
+            if (parseInt(target.value) < 1) {
+                target.value = 1
+            }
+            //hidden íd
+            const orderDetailIdEl = target.nextSibling.nextSibling;
+            const orderDetailId = orderDetailIdEl.value;
+
+            const quantity = target.value;
+            console.log(`quantity: ${quantity} id: ${orderDetailId}`)
+            // send ajax
+            $.ajax({
+                url: "/order/UpdateOrderDetailQuantity",
+                data: {
+                    id: orderDetailId,
+                    quantity: quantity
+                },
+                type: "GET",
+                dataType: "html",
+                success: function (data) {
+                    console.log(data);
+                    updateHtml(data)
+                },
+                complete: assignEvent
+
+            });
+
+
+        }
+        function updateHtml(data) {
+            cart.innerHTML = "";
+            cart.innerHTML = data;
+            const quantityInputEls = document.querySelectorAll("input[name='qtybutton']");
+            for (let i = 0; i < quantityInputEls.length; i++) {
+                const current = quantityInputEls[i];
+                console.log(current)
+                current.addEventListener("change", update)
+            }
+        }
+
+    </script>
+}

@@ -1,0 +1,140 @@
+﻿@model JustBuy.Models.OrderCompleteViewModel
+
+@{
+    ViewBag.Title = "OrderComplete";
+}
+
+
+<!-- Start page content -->
+<section id="page-content" class="page-wrapper">
+
+    <!-- SHOP SECTION START -->
+    <div class="shop-section mb-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-sm-12">
+                    <ul class="cart-tab">
+                        <li>
+                            <a class="active" href="#disable">
+                                <span>01</span>
+                                Shopping cart
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#disable" class="active">
+                                <span>02</span>
+                                Checkout
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#order-complete" class="active">
+                                <span>03</span>
+                                Order complete
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-10 col-sm-12">
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+
+                    
+                        <!-- order-complete start -->
+                        <div class="tab-pane active" id="order-complete">
+                            <div class="order-complete-content box-shadow">
+                                <div class="thank-you p-30 text-center">
+                                    <h6 class="text-black-5 mb-0">Thank you. Your order has been received.</h6>
+                                
+                                </div>
+                                <div class="order-info p-30 mb-10">
+                                    <ul class="order-info-list">
+                                        <li>
+                                            <h6>order no</h6>
+                                            <p>@Model.Order.Id</p>
+                                        </li>
+                                        <li>
+                                            <h6>Status</h6>
+                                            <p>@Model.Order.Status</p>
+                                        </li>
+                                        <li>
+                                            <h6>Order date</h6>
+                                            <p>@Model.Order.CreatedAt.ToString("MM, dd, yyyy")</p>
+                                        </li>
+                                        <li>
+                                            <h6>Delivery At</h6>
+                                            <p>@Model.Order.DeliveryDate.ToString("MM, dd, yyyy")</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="row">
+                                    <!-- our order -->
+                                    <div class="col-md-6">
+                                        <div class="payment-details p-30">
+                                            <h6 class="widget-title border-left mb-20">our order</h6>
+                                            <table>
+                                                @foreach (var item in Model.Order.OrderDetails)
+                                                {
+                                                    <tr>
+                                                        <td class="td-title-1">@item.Product.Name x @item.Quantity</td>
+                                                        <td class="td-title-2">@item.SalePrice.ToString("C2")</td>
+                                                    </tr>
+                                                }
+
+                                                
+                                                <tr>
+                                                    <td class="td-title-1">Shipping and Handing</td>
+                                                    <td class="td-title-2">@Model.Order.ShippingFee.ToString("C2")</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="td-title-1">Vat</td>
+                                                    <td class="td-title-2">$00.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="order-total">Order Total</td>
+                                                    <td class="order-total-price">@Model.Order.TotalPrice.ToString("C2")</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="bill-details p-30">
+                                            <h6 class="widget-title border-left mb-20">billing details</h6>
+                                            <ul class="bill-address">
+                                                <li>
+                                                    <span>Name:</span>
+                                                    @Model.AppUser.FullName
+                                                </li>
+                                                <li>
+                                                    <span>Address:</span>
+                                                    @Model.AppUser.Address
+                                                </li>
+                                                <li>
+                                                    <span>email:</span>
+                                                    @Model.AppUser.Email
+                                                </li>
+                                                <li>
+                                                    <span>phone : </span>
+                                                    @Model.AppUser.Phone
+                                                </li>
+                                                <li>
+                                                    <span>Payment: </span>
+                                                    @Model.Order.PaymentMethod
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- order-complete end -->
+                    </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <!-- SHOP SECTION END -->
+
+</section>
+

@@ -164,6 +164,7 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -183,6 +184,14 @@
     <Compile Include="Migrations\202104240925306_Add-LaunchDate-To-Products-Table.cs" />
     <Compile Include="Migrations\202104240925306_Add-LaunchDate-To-Products-Table.Designer.cs">
       <DependentUpon>202104240925306_Add-LaunchDate-To-Products-Table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104250719152_Add_ShipingFee_To_Orders_Table.cs" />
+    <Compile Include="Migrations\202104250719152_Add_ShipingFee_To_Orders_Table.Designer.cs">
+      <DependentUpon>202104250719152_Add_ShipingFee_To_Orders_Table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104250741595_Change_UserId_To_String.cs" />
+    <Compile Include="Migrations\202104250741595_Change_UserId_To_String.Designer.cs">
+      <DependentUpon>202104250741595_Change_UserId_To_String.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDataContext.cs" />
@@ -419,6 +428,10 @@
     <Content Include="Views\Product\Detail.cshtml" />
     <Content Include="Views\Product\Filter.cshtml" />
     <Content Include="Views\Product\Search.cshtml" />
+    <Content Include="Views\Order\ListOrderDetail.cshtml" />
+    <Content Include="Views\Order\_Cart.cshtml" />
+    <Content Include="Views\Order\Checkout.cshtml" />
+    <Content Include="Views\Order\OrderComplete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -445,6 +458,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104240925306_Add-LaunchDate-To-Products-Table.resx">
       <DependentUpon>202104240925306_Add-LaunchDate-To-Products-Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104250719152_Add_ShipingFee_To_Orders_Table.resx">
+      <DependentUpon>202104250719152_Add_ShipingFee_To_Orders_Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104250741595_Change_UserId_To_String.resx">
+      <DependentUpon>202104250741595_Change_UserId_To_String.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

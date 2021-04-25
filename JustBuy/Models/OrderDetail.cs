@@ -23,6 +23,11 @@ namespace JustBuy.Models
         public int Quantity { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
+        
+        public double CalculateTotalPrice()
+        {
+            return this.SalePrice * this.Quantity;
+        }
 
     }
 }

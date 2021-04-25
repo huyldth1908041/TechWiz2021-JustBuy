@@ -13,4 +13,10 @@ namespace JustBuy.Models
 
         public List<Product> TopFiveNewestProduct { get; set; }
     }
+
+    public class OrderCompleteViewModel
+    {
+        public Order Order { get; set; }
+        public AppUser AppUser { get; set; }
+    }
 }
