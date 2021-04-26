@@ -1,7 +1,224 @@
-﻿@{
-    ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/icon/favicon.png">
 
-<p>Use this area to provide additional information.</p>
+    <script src="@Url.Content("~/Content/js/vendor/modernizr-2.8.3.min.js")"></script>
+
+    <link href="@Url.Content("~/Content/PagedList.css")" rel="stylesheet" />
+</head>
+<body>
+    <section id="page-content" class="page-wrapper">
+        <div class="breadcrumbs-section plr-200 mb-80">
+            <div class="breadcrumbs overlay-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="breadcrumbs-inner">
+                                <h1 class="breadcrumbs-title">About</h1>
+                                <ul class="breadcrumb-list">
+                                    <li><a href=@Url.Content("~/Home/Index")>Home</a></li>
+                                    <li>About</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ABOUT SECTION START -->
+        <div class="about-section mb-80">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-title text-left ">
+                            <h2 class="uppercase">about justbuy</h2>
+                            <h6 class="mb-40">There are many footwears of brands available.</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="about-photo p-20 bg-img-1">
+                            <img src="img/others/about.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="about-description mt-50">
+                            <p>
+                                As society progresses, with the addition of Covid-19, we have seen a great future for footwear development. And here we are, trying to meet the ever-evolving online shopping needs of our customers.
+                            </p>
+                            <p>Come to our website, you will experience a large scale e-commerce site. Convenience is our top priority, in addition, customer psychology is also what we are very interested in. Wanting a good experience from our customers is what we value. However, if you encounter a bad experience, please contact us for inquiries and requests.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ABOUT SECTION END -->
+        <!-- TEAM SECTION START -->
+        <div class="team-section mb-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-title text-left ">
+                            <h2 class="uppercase">leader team</h2>
+                            <h6 class="mb-40">Our team members work together.</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="active-team-member">
+                        <!-- team-member start -->
+                        <div class="col-md-12">
+                            <div class="team-member box-shadow bg-shape">
+                                <div class="team-member-photo">
+                                    <img src="~/Content/Huy1.jpg" alt="">
+                                </div>
+                                <div class="team-member-info pt-20">
+                                    <h5 class="member-name"><a href="#">Huy Luu</a></h5>
+                                    <p class="member-position">CEO & Founder</p>
+                                    <p class="mb-20">Create, plan, follow the stategic direction.</p>
+                                    <ul class="footer-social">
+                                        <li>
+                                            <a class="facebook" href="" title="Facebook"><i class="zmdi zmdi-facebook"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="google-plus" href="" title="Google Plus"><i class="zmdi zmdi-google-plus"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="twitter" href="" title="Twitter"><i class="zmdi zmdi-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="rss" href="" title="RSS"><i class="zmdi zmdi-rss"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- team-member end -->
+                        <!-- team-member start -->
+                        <div class="col-md-12">
+                            <div class="team-member box-shadow bg-shape">
+                                <div class="team-member-photo">
+                                    <img src="~/Content/huy2.jpg" alt="">
+                                </div>
+                                <div class="team-member-info pt-20">
+                                    <h5 class="member-name"><a href="#">Bao Hung</a></h5>
+                                    <p class="member-position">Department Manager</p>
+                                    <p class="mb-20">Manage officers and employees according to the CEO.</p>
+                                    <ul class="footer-social">
+                                        <li>
+                                            <a class="facebook" href="" title="Facebook"><i class="zmdi zmdi-facebook"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="google-plus" href="" title="Google Plus"><i class="zmdi zmdi-google-plus"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="twitter" href="" title="Twitter"><i class="zmdi zmdi-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="rss" href="" title="RSS"><i class="zmdi zmdi-rss"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- team-member end -->
+                        <!-- team-member start -->
+                        <div class="col-md-12">
+                            <div class="team-member box-shadow bg-shape">
+                                <div class="team-member-photo">
+                                    <img src="~/Content/thaianh.jpeg" alt="">
+                                </div>
+                                <div class="team-member-info pt-20">
+                                    <h5 class="member-name"><a href="#">Thai Anh</a></h5>
+                                    <p class="member-position">Production Manager</p>
+                                    <p class="mb-20">Responsible for making the most accurate product for the customer.</p>
+                                    <ul class="footer-social">
+                                        <li>
+                                            <a class="facebook" href="" title="Facebook"><i class="zmdi zmdi-facebook"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="google-plus" href="" title="Google Plus"><i class="zmdi zmdi-google-plus"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="twitter" href="" title="Twitter"><i class="zmdi zmdi-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="rss" href="" title="RSS"><i class="zmdi zmdi-rss"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- team-member end -->
+                        <!-- team-member start -->
+                        <div class="col-md-12">
+                            <div class="team-member box-shadow bg-shape">
+                                <div class="team-member-photo">
+                                    <img src="~/Content/linh.jpg" alt="">
+                                </div>
+                                <div class="team-member-info pt-20">
+                                    <h5 class="member-name"><a href="#">Linh Cao</a></h5>
+                                    <p class="member-position">Marketing Manager</p>
+                                    <p class="mb-20">Leading & responsible for all marketing strategy.</p>
+                                    <ul class="footer-social">
+                                        <li>
+                                            <a class="facebook" href="" title="Facebook"><i class="zmdi zmdi-facebook"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="google-plus" href="" title="Google Plus"><i class="zmdi zmdi-google-plus"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="twitter" href="" title="Twitter"><i class="zmdi zmdi-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="rss" href="" title="RSS"><i class="zmdi zmdi-rss"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- team-member end -->
+                        <!-- team-member start -->
+                        <div class="col-md-12">
+                            <div class="team-member box-shadow bg-shape">
+                                <div class="team-member-photo">
+                                    <img src="img/team/2.png" alt="">
+                                </div>
+                                <div class="team-member-info pt-20">
+                                    <h5 class="member-name"><a href="#">Nancy holland</a></h5>
+                                    <p class="member-position">Chairman</p>
+                                    <p class="mb-20">There are many variations of passage of Lorem Ipsum available, but the in majority have suffered.</p>
+                                    <ul class="footer-social">
+                                        <li>
+                                            <a class="facebook" href="" title="Facebook"><i class="zmdi zmdi-facebook"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="google-plus" href="" title="Google Plus"><i class="zmdi zmdi-google-plus"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="twitter" href="" title="Twitter"><i class="zmdi zmdi-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="rss" href="" title="RSS"><i class="zmdi zmdi-rss"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- team-member end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- TEAM SECTION END -->
+    </section>
+
+</body>
+</html>
