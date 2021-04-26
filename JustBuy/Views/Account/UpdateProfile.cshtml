@@ -4,61 +4,143 @@
     ViewBag.Title = "UpdateProfile";
 }
 
-<div class="breadcrumbs overlay-bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="breadcrumbs-inner">
-                    <h1 class="breadcrumbs-title">Edit Profile</h1>
+<div class="breadcrumbs-section plr-200 mb-80">
+    <div class="breadcrumbs overlay-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="breadcrumbs-inner">
+                        <h1 class="breadcrumbs-title">My Account</h1>
+                        <ul class="breadcrumb-list">
+                            <li><a href="index.html">Home</a></li>
+                            <li>My Account</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<!-- BREADCRUMBS SETCTION END -->
+<!-- Start page content -->
+<div id="page-content" class="page-wrapper">
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <div class="col-sm-3"></div>
-    <div class="form-horizontal col-sm-6">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-4" })
-            <div class="col-md-8">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    <!-- LOGIN SECTION START -->
+    <div class="login-section mb-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="my-account-content" id="accordion2">
+                        <!-- My Personal Information -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion2" href="#personal_info">My Personal Information</a>
+                                </h4>
+                            </div>
+                            <div id="personal_info" class="panel-collapse collapse in" role="tabpanel">
+                                <div class="panel-body">
+                                    @using (Html.BeginForm())
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <div class="col-sm-3"></div>
+                                        <div class="form-horizontal col-sm-6">
+                                            <hr />
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-4" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "control-label col-md-4" })
-            <div class="col-md-8">
-                @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "control-label col-md-4" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-4" })
-            <div class="col-md-8">
-                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-4" })
+                                                <div class="col-md-8">
+                                                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-4" })
-            <div class="col-md-8">
-                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-4" })
+                                                <div class="col-md-8">
+                                                    @Html.TextAreaFor(model => model.Address, new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-5 col-md-8 pb-50">
-                <input type="submit" value="Save" class="submit-btn-1 btn-hover-1" />
+                                            <div class="form-group">
+                                                <div class="col-md-offset-5 col-md-8 pb-50">
+                                                    <input type="submit" value="Save" class="submit-btn-1 btn-hover-1" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3"></div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion2" href="#My_order_info">My Order info</a>
+                                </h4>
+                            </div>
+                            <div id="My_order_info" class="panel-collapse collapse" role="tabpanel">
+                                <div class="panel-body">
+                                    <form action="#">
+                                        <!-- our order -->
+                                        <div class="payment-details p-30">
+                                            <table>
+                                                <tr>
+                                                    <td class="td-title-1">Dummy Product Name x 2</td>
+                                                    <td class="td-title-2">$1855.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="td-title-1">Dummy Product Name</td>
+                                                    <td class="td-title-2">$555.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="td-title-1">Cart Subtotal</td>
+                                                    <td class="td-title-2">$2410.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="td-title-1">Shipping and Handing</td>
+                                                    <td class="td-title-2">$15.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="td-title-1">Vat</td>
+                                                    <td class="td-title-2">$00.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="order-total">Order Total</td>
+                                                    <td class="order-total-price">$2425.00</td>
+                                                </tr>
+                                            </table>
+                                            <button class="submit-btn-1 mt-20 btn-hover-1" type="submit" value="register">Save</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Payment Method -->
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-sm-3"></div>}
+    <!-- LOGIN SECTION END -->
+</div>
+
+
