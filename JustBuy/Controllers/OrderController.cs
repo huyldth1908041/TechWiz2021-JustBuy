@@ -154,7 +154,7 @@ namespace JustBuy.Controllers
         }
         [HttpGet]
         [Authorize]
-        public ActionResult Checkout(int? id)
+        public async System.Threading.Tasks.Task<ActionResult> Checkout(int? id)
         {
             if (id == null)
             {
@@ -166,7 +166,11 @@ namespace JustBuy.Controllers
             {
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
             }
-            ViewBag.User = order.User;
+            string userId = order.UserId;
+            var userManager = HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
+            var currentUser = await userManager.FindByIdAsync(userId);
+            ViewBag.User = currentUser;
+
             return View(order);
         }
         [HttpPost]
