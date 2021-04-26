@@ -1,7 +1,7 @@
-﻿@model JustBuy.Models.Order
+﻿@model JustBuy.Models.CheckoutViewModel
 @{
     ViewBag.Title = "Checkout";
-    JustBuy.Models.AppUser user = (JustBuy.Models.AppUser)ViewBag.User;
+
 }
 <div class="breadcrumbs-section plr-200 mb-80">
     <div class="breadcrumbs overlay-bg">
@@ -58,19 +58,19 @@
                         <!-- checkout start -->
                         <div class="tab-pane active" id="checkout">
                             <div class="checkout-content box-shadow p-30">
-                                <form action="@Url.Action("Checkout", new { id = Model.Id})" method="post">
+                                <form action="@Url.Action("Checkout", new { id = Model.Order.Id})" method="post">
                                     <div class="row">
                                         <!-- billing details -->
                                         <div class="col-md-6">
                                             <div class="billing-details pr-10">
                                                 <h6 class="widget-title border-left mb-20">billing details</h6>
                                              
-                                                <input type="text" placeholder="Your Name Here..." value="@user.FullName" name="fullName" required>
-                                                <input type="text" placeholder="Email address here..." value="@user.Email" name="email" required>
-                                                <input type="text" placeholder="Phone here..." value="@user.Phone" name="phone" required>
+                                                <input type="text" placeholder="Your Name Here..." value="@Model.AppUser.FullName" name="fullName" required>
+                                                <input type="text" placeholder="Email address here..." value="@Model.AppUser.Email" name="email" required>
+                                                <input type="text" placeholder="Phone here..." value="@Model.AppUser.Phone" name="phone" required>
 
 
-                                                <textarea class="custom-textarea" placeholder="Your address here..." name="address" required>@user.Address</textarea>
+                                                <textarea class="custom-textarea" placeholder="Your address here..." name="address" required>@Model.AppUser.Address</textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -78,7 +78,7 @@
                                             <div class="payment-details pl-10 mb-50">
                                                 <h6 class="widget-title border-left mb-20">our order</h6>
                                                 <table>
-                                                    @foreach (var item in Model.OrderDetails.ToList())
+                                                    @foreach (var item in Model.Order.OrderDetails.ToList())
                                                     {
                                                         <tr>
                                                             <td class="td-title-1">@item.Product.Name x @item.Quantity</td>
@@ -89,11 +89,11 @@
                                                     
                                                     <tr>
                                                         <td class="td-title-1">Shipping and Handling</td>
-                                                        <td class="td-title-2">@Model.ShippingFee.ToString("C2")</td>
+                                                        <td class="td-title-2">@Model.Order.ShippingFee.ToString("C2")</td>
                                                     </tr>
                                                     <tr>
                                                         <td class="order-total">Order Total</td>
-                                                        <td class="order-total-price">@Model.TotalPrice.ToString("C2")</td>
+                                                        <td class="order-total-price">@Model.Order.TotalPrice.ToString("C2")</td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -101,9 +101,9 @@
                                             <div class="payment-method">
                                                 <h6 class="widget-title border-left mb-20">payment method</h6>
                                                 
-                                                    @Html.EnumDropDownListFor(model => model.PaymentMethod, new { style = "width: 100%"})
-                                                
-
+                                                    @Html.EnumDropDownListFor(model => model.Order.PaymentMethod, new { style = "width: 100%", Name="PaymemtMethod"})
+                                        
+                                          
                                             </div>
                                             <!-- payment-method end -->
                                             <button class="submit-btn-1 mt-30 btn-hover-1" type="submit">place order</button>

@@ -20,4 +20,12 @@ namespace JustBuy.Models
         public AppUser AppUser { get; set; }
     }
 
+    public class CheckoutViewModel
+    {
+        public Order Order { get; set; }
+        public AppUser AppUser { get; set; }
+    }
+
+
+
 }

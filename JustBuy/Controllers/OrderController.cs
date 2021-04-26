@@ -37,7 +37,7 @@ namespace JustBuy.Controllers
             var currentUser = await userManager.FindByIdAsync(User.Identity.GetUserId());
             //current product
             var currentProduct = _db.Products.Find(productId);
-            if(currentProduct == null)
+            if (currentProduct == null)
             {
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
             }
@@ -166,12 +166,17 @@ namespace JustBuy.Controllers
             {
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
             }
-            ViewBag.User = order.User;
-            return View(order);
+            var viewModel = new CheckoutViewModel
+            {
+                Order = order,
+                AppUser = order.User
+
+            };
+            return View(viewModel);
         }
         [HttpPost]
         [Authorize]
-        public ActionResult Checkout(int? id, string fullName, string email, string phone, string address, int PaymentMethod)
+        public ActionResult Checkout(int? id, string fullName, string email, string phone, string address, int? PaymentMethod)
         {
             if (id == null)
             {
@@ -183,6 +188,10 @@ namespace JustBuy.Controllers
             if (order == null)
             {
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            if (PaymentMethod == null)
+            {
+                PaymentMethod = 0;
             }
 
             var userManager = HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
@@ -226,12 +235,12 @@ namespace JustBuy.Controllers
         [Authorize]
         public ActionResult DeleteOrderDetail(int? id)
         {
-            if( id == null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
             }
             var currentOrderDetail = _db.OrderDetails.Find(id);
-            if(currentOrderDetail == null)
+            if (currentOrderDetail == null)
             {
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
             }
