@@ -1,9 +1,10 @@
-﻿@model IEnumerable<JustBuy.Models.Product>
+﻿@model IEnumerable<JustBuy.Models.Order>
 
 @{
-    ViewBag.Title = "ListProduct";
+    ViewBag.Title = "ListOrder";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
 @section pageStyles {
 
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/admin/assets/vendor/datatables/css/dataTables.bootstrap4.css")">
@@ -26,32 +27,24 @@
                         <thead>
                             <tr>
                                 <th>
-                                    Id
+                                    Order No
                                 </th>
                                 <th>
-                                    Category
+                                    Customer
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Name)
-                                </th>
-
-                                <th>
-                                    Cover
+                                    Order Date
                                 </th>
 
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Price)
-                                </th>
-                                <th>
-                                    Launche Date
+                                    Delivery Date
                                 </th>
 
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Quantity)
+                                    Total Price
                                 </th>
-
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Status)
+                                    Status
                                 </th>
                                 <th>Actions</th>
                             </tr>
@@ -65,45 +58,38 @@
                                         @item.Id
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Category.Name)
+                                        @item.User.FullName
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Name)
+                                        @item.CreatedAt.ToString("MM/dd/yyyy")
                                     </td>
                                     <td>
-                                        <img src="@item.GetSmallImage()" alt="Alternate Text" />
-                                    </td>
-
-                                    <td>
-                                        @item.Price.ToString("C2")
-                                    </td>
-
-
-                                    <td>
-                                        @item.LaunchDate.ToString("MM/dd/yyyy")
+                                        @item.DeliveryDate.ToString("MM/dd/yyyy")
                                     </td>
 
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Quantity)
+                                        @item.TotalPrice.ToString("C2")
                                     </td>
                                     <th>
                                         @Html.DisplayFor(modelItem => item.Status)
                                     </th>
                                     <td>
-                                        <a href="@Url.Action("ManageVehicleDetail", new { id = item.Id})" class="btn btn-primary">Disable</a>
+                                        <a href="@Url.Action("ManageVehicleDetail", new { id = item.Id})" class="btn btn-primary">Details</a>
+                                        @if (item.Status == JustBuy.Models.Order.OrderStatus.Processing)
+                                        {
+                                            <form action="@Url.Action("CancelOrder", "Admin", new { id = item.Id})" style="display: inline" method="post">
+                                                <button type="submit" class="btn btn-danger">Cancel</button>
+                                            </form>
+                                          
+                                            <a href="#" class="btn btn-danger">Done</a>
+                                  
+                                        }
+                
+                
                                     </td>
                                 </tr>
                             }
                         </tbody>
-                        @*<tfoot>
-                                <tr>
-                                    <th>Quantity</th>
-                                    <th>Total Price</th>
-                                    <th>Status</th>
-                                    <th>Created At</th>
-                                    <th>Updated At</th>
-                                </tr>
-                            </tfoot>*@
                     </table>
                 </div>
             </div>

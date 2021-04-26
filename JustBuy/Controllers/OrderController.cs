@@ -272,6 +272,7 @@ namespace JustBuy.Controllers
             //cancel order
             currentOrder.Status = Order.OrderStatus.Canceled;
             _db.SaveChanges();
+            
             return RedirectToAction("MyAccount", "Account");
         }
 

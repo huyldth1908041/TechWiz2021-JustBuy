@@ -212,6 +212,38 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\admin\assets\images\avatar-1.jpg" />
+    <Content Include="Content\admin\assets\images\avatar-2.jpg" />
+    <Content Include="Content\admin\assets\images\avatar-3.jpg" />
+    <Content Include="Content\admin\assets\images\avatar-4.jpg" />
+    <Content Include="Content\admin\assets\images\avatar-5.jpg" />
+    <Content Include="Content\admin\assets\images\bitbucket.png" />
+    <Content Include="Content\admin\assets\images\card-img-1.jpg" />
+    <Content Include="Content\admin\assets\images\card-img-2.jpg" />
+    <Content Include="Content\admin\assets\images\card-img-3.jpg" />
+    <Content Include="Content\admin\assets\images\card-img.jpg" />
+    <Content Include="Content\admin\assets\images\down-arrow.png" />
+    <Content Include="Content\admin\assets\images\drag-indicator.png" />
+    <Content Include="Content\admin\assets\images\dribbble.png" />
+    <Content Include="Content\admin\assets\images\dropbox.png" />
+    <Content Include="Content\admin\assets\images\eco-product-img-1.png" />
+    <Content Include="Content\admin\assets\images\eco-product-img-2.png" />
+    <Content Include="Content\admin\assets\images\eco-product-img-3.png" />
+    <Content Include="Content\admin\assets\images\eco-product-img-4.png" />
+    <Content Include="Content\admin\assets\images\eco-slider-img-1.png" />
+    <Content Include="Content\admin\assets\images\eco-slider-img-2.png" />
+    <Content Include="Content\admin\assets\images\eco-slider-img-3.png" />
+    <Content Include="Content\admin\assets\images\error-img.png" />
+    <Content Include="Content\admin\assets\images\github.png" />
+    <Content Include="Content\admin\assets\images\loader.svg" />
+    <Content Include="Content\admin\assets\images\logo.png" />
+    <Content Include="Content\admin\assets\images\mail_chimp.png" />
+    <Content Include="Content\admin\assets\images\product-pic-2.jpg" />
+    <Content Include="Content\admin\assets\images\product-pic-3.jpg" />
+    <Content Include="Content\admin\assets\images\product-pic-4.jpg" />
+    <Content Include="Content\admin\assets\images\product-pic.jpg" />
+    <Content Include="Content\admin\assets\images\slack.png" />
+    <Content Include="Content\admin\assets\images\switch.png" />
     <Content Include="Content\admin\assets\libs\css\style.css" />
     <Content Include="Content\admin\assets\libs\js\dashboard-ecommerce.js" />
     <Content Include="Content\admin\assets\libs\js\dashboard-finance.js" />
@@ -831,6 +863,7 @@
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\ListProduct.cshtml" />
+    <Content Include="Views\Admin\ListOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
