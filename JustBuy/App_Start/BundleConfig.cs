@@ -43,6 +43,20 @@ namespace JustBuy
                     "~/Content/js/plugins.js",
                     "~/Content/js/main.js"
                 ));
+
+                    bundles.Add(new StyleBundle("~/Contennt/admin-layout-style").Include(
+                "~/Content/admin/assets/vendor/bootstrap/css/bootstrap.min.css",
+                "~/Content/admin/assets/vendor/fonts/circular-std/style.css",
+                "~/Content/admin/assets/libs/css/style.css",
+                "~/Content/admin/assets/vendor/fonts/fontawesome/css/fontawesome-all.css"
+
+             ));
+            bundles.Add(new ScriptBundle("~/Content/admin-layout-scripts").Include(
+                    "~/Content/admin/assets/vendor/jquery/jquery-3.3.1.min.js",
+                    "~/Content/admin/assets/vendor/bootstrap/js/bootstrap.bundle.js",
+                    "~/Content/admin/assets/vendor/slimscroll/jquery.slimscroll.js",
+                    "~/Content/admin/assets/libs/js/main-js.js"
+                ));
         }
     }
 }
