@@ -13,5 +13,9 @@ namespace JustBuy.Models
         public DateTime UpdatedAt { get; set; }
         public string UserId { get; set; }
         public virtual AppUser User { get; set; }
+        public string Subject { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public string Name { get; set; }
     }
 }

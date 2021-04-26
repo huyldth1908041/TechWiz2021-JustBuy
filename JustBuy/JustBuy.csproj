@@ -193,6 +193,10 @@
     <Compile Include="Migrations\202104250741595_Change_UserId_To_String.Designer.cs">
       <DependentUpon>202104250741595_Change_UserId_To_String.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104261240274_Add_More_Fields_To_FeedBacks.cs" />
+    <Compile Include="Migrations\202104261240274_Add_More_Fields_To_FeedBacks.Designer.cs">
+      <DependentUpon>202104261240274_Add_More_Fields_To_FeedBacks.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDataContext.cs" />
     <Compile Include="Models\AppRole.cs" />
@@ -465,6 +469,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104250741595_Change_UserId_To_String.resx">
       <DependentUpon>202104250741595_Change_UserId_To_String.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104261240274_Add_More_Fields_To_FeedBacks.resx">
+      <DependentUpon>202104261240274_Add_More_Fields_To_FeedBacks.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
