@@ -23,7 +23,7 @@
                                         <div class="slider-brief text-black-2">
                                             <p>@item.Description</p>
                                         </div>
-                                        <a href="/Product/Detail/@item.Id" class="button extra-small button-black">
+                                        <a href="@Url.Action("Detail", "Product", new { id = item.Id })" class="button extra-small button-black">
                                             <span class="text-uppercase">Buy now</span>
                                         </a>
                                     </div>
@@ -60,9 +60,9 @@
                         <!-- single-brand-product start -->
                         <div class="col-xs-12">
                             <div class="single-brand-product">
-                                <a href="/Product/Detail/@item.Id"><img src="@item.GetAllCover().FirstOrDefault()" alt=""></a>
+                                <a href="@Url.Action("Filter", "Product", new { categoryId = item.Id})"><img src="@item.GetAllCover().FirstOrDefault()" alt=""></a>
                                 <h3 class="brand-title text-gray" style="background-color: #fff;">
-                                    <a href="/Product/Detail/@item.Id">@item.Name</a>
+                                    <a href="@Url.Action("Filter", "Product", new { categoryId = item.Id})">@item.Name</a>
                                 </h3>
                             </div>
                         </div>
