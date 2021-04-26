@@ -19,4 +19,5 @@ namespace JustBuy.Models
         public Order Order { get; set; }
         public AppUser AppUser { get; set; }
     }
+
 }

@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace JustBuy.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
         private static AppDataContext _db;
@@ -152,6 +153,7 @@ namespace JustBuy.Controllers
             return PartialView("_Cart", currentOrder.OrderDetails.OrderBy(o => o.CreatedAt).ToList());
         }
         [HttpGet]
+        [Authorize]
         public ActionResult Checkout(int? id)
         {
             if (id == null)
@@ -168,6 +170,7 @@ namespace JustBuy.Controllers
             return View(order);
         }
         [HttpPost]
+        [Authorize]
         public ActionResult Checkout(int? id, string fullName, string email, string phone, string address, int PaymentMethod)
         {
             if (id == null)
@@ -196,7 +199,7 @@ namespace JustBuy.Controllers
             _db.SaveChanges();
             return RedirectToAction("OrderComplete", new { id = order.Id });
         }
-
+        [Authorize]
         public ActionResult OrderComplete(int? id)
         {
             if (id == null)
@@ -220,6 +223,7 @@ namespace JustBuy.Controllers
         }
         //ajax call only
         [HttpPost]
+        [Authorize]
         public ActionResult DeleteOrderDetail(int? id)
         {
             if( id == null)
@@ -243,6 +247,25 @@ namespace JustBuy.Controllers
             ViewBag.Order = updatedOrder;
             return PartialView("_Cart", updatedOrder.OrderDetails.OrderBy(o => o.CreatedAt).ToList());
         }
+        [HttpPost]
+        [Authorize]
+        public ActionResult CancelOrder(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            var currentOrder = _db.Orders.Find(id);
+            if (currentOrder == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            //cancel order
+            currentOrder.Status = Order.OrderStatus.Canceled;
+            _db.SaveChanges();
+            return RedirectToAction("MyAccount", "Account");
+        }
+
 
     }
 }

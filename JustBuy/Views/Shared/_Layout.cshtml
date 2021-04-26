@@ -36,7 +36,7 @@
                                     @if (Request.IsAuthenticated)
                                     {
                                         <li id="account">
-                                            <a href="" class="account">
+                                            <a href="@Url.Action("MyAccount", "Account")" class="account">
                                                 <i class="zmdi zmdi-account"></i>
                                                 @User.Identity.Name
                                             </a>

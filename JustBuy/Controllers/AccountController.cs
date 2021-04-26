@@ -122,7 +122,7 @@ namespace JustBuy.Controllers
         }
         [Authorize]
         [HttpGet]
-        public async System.Threading.Tasks.Task<ActionResult> UpdateProfile()
+        public async System.Threading.Tasks.Task<ActionResult> MyAccount()
         {
             var userManager = HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
             var authManager = HttpContext.GetOwinContext().Authentication;
@@ -136,7 +136,8 @@ namespace JustBuy.Controllers
                 Address = user.Address,
                 Email = user.Email,
                 FullName = user.FullName,
-                Phone = user.Phone
+                Phone = user.Phone,
+                Orders = user.Orders.ToList()
             };
             return View(viewModel);
         }
@@ -161,7 +162,7 @@ namespace JustBuy.Controllers
             currentUser.Phone = model.Phone;
             currentUser.Email = model.Email;
             userManager.Update(currentUser);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("MyAccount", "Account");
         }
     }
 }

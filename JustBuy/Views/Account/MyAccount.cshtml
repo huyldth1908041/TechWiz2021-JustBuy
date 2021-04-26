@@ -40,7 +40,7 @@
                             </div>
                             <div id="personal_info" class="panel-collapse collapse " role="tabpanel">
                                 <div class="panel-body">
-                                    @using (Html.BeginForm())
+                                    @using (Html.BeginForm("UpdateProfile", "Account", "POST"))
                                     {
                                         @Html.AntiForgeryToken()
                                         <div class="col-sm-3"></div>
@@ -99,57 +99,62 @@
                             </div>
                             <div id="My_order_info" class="panel-collapse collapse in" role="tabpanel">
                                 <div class="panel-body">
-                                    <form action="#">
-                                        <!-- our order -->
-                                        <div class="payment-details p-30">
-                                            <table>
-                                                <thead>
-                                                    <tr>
-                                                        <th>Order No</th>
-                                                        <th>Items</th>
-                                                        <th>Total Price</th>
-                                                        <th>Order Date</th>
-                                                        <th>Delivery Date</th>
-                                                        <th>Status</th>
-                                                        <th>Actions</th>
-                                                    </tr>
-                                                </thead>
-                                                @foreach (var item in Model.Orders)
-                                                {
-                                                    <tr>
-                                                        <td>@item.Id</td>
-                                                        <td>
-                                                            @foreach (var orderDetail in item.OrderDetails)
-                                                            {
-                                                                <span>@orderDetail.Product.Name </span> <span>x</span> <span>@orderDetail.Quantity</span><br />
-                                                            }
-                                                        </td>
-                                                        <td>
-                                                            @item.TotalPrice.ToString("C2")
-                                                        </td>
-                                                        <td>
-                                                            @item.CreatedAt.ToString("MM, dd, yyyy")
-                                                        </td>
-                                                        <td>
-                                                            @item.DeliveryDate.ToString("MM, dd, yyyy")
-                                                        </td>
-                                                        <td>
-                                                            @item.Status
-                                                        </td>
-                                                        <td>
-                                                            @if (item.Status == JustBuy.Models.Order.OrderStatus.Processing)
-                                                            {
-                                                                <button class="btn btn-danger">Cancel</button>
-                                                            }
-                                                        </td>
-                                                    </tr>
-                                                }
+
+                                    <!-- our order -->
+                                    <div class="payment-details p-30">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Order No</th>
+                                                    <th>Items</th>
+                                                    <th>Total Price</th>
+                                                    <th>Order Date</th>
+                                                    <th>Delivery Date</th>
+                                                    <th>Status</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            @foreach (var item in Model.Orders)
+                                            {
+                                                <tr>
+                                                    <td>@item.Id</td>
+                                                    <td>
+                                                        @foreach (var orderDetail in item.OrderDetails)
+                                                        {
+                                                            <span>@orderDetail.Product.Name </span> <span>x</span> <span>@orderDetail.Quantity</span><br />
+                                                        }
+                                                    </td>
+                                                    <td>
+                                                        @item.TotalPrice.ToString("C2")
+                                                    </td>
+                                                    <td>
+                                                        @item.CreatedAt.ToString("MM, dd, yyyy")
+                                                    </td>
+                                                    <td>
+                                                        @item.DeliveryDate.ToString("MM, dd, yyyy")
+                                                    </td>
+                                                    <td>
+                                                        @item.Status
+                                                    </td>
+                                                    <td>
+                                                        @if (item.Status == JustBuy.Models.Order.OrderStatus.Processing)
+                                                        {
+                                                        <form action="@Url.Action("CancelOrder", "Order", new { id = item.Id})" method="post">
+                                                            
+                                                            <button type="submit" class="btn btn-danger">Cancel</button>
+                                                        </form>
+                                                            
+
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            }
 
 
-                                            </table>
+                                        </table>
 
-                                        </div>
-                                    </form>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
