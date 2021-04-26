@@ -45,6 +45,7 @@ namespace JustBuy.Models
             var listOrdertails = this.OrderDetails.ToList();
             if( listOrdertails == null || listOrdertails.Count() == 0)
             {
+                this.TotalPrice = 0;
                 return 0;
             }
             double totalPrice = 0;

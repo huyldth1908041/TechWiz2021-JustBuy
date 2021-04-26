@@ -90,7 +90,10 @@
                                                         </li>
 
                                                         <li>
-                                                            <a href="#" title="Add to cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
+                                                            <form action="@Url.Action("CreateOrder", "Order", new { productId = item.Id})" method="post">
+                                                                <button type="submit" title="Add to cart"><i class="zmdi zmdi-shopping-cart-plus"></i></button>
+                                                            </form>
+
                                                         </li>
                                                     </ul>
                                                 </div>

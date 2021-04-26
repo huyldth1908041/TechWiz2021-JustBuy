@@ -36,6 +36,10 @@ namespace JustBuy.Controllers
             var currentUser = await userManager.FindByIdAsync(User.Identity.GetUserId());
             //current product
             var currentProduct = _db.Products.Find(productId);
+            if(currentProduct == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
             //get pending order if exist
             var pendingOrder = currentUser.Orders.Where(order => order.Status == Order.OrderStatus.Pending).FirstOrDefault();
             if (pendingOrder != null)
@@ -125,8 +129,10 @@ namespace JustBuy.Controllers
                 return View(new List<OrderDetail>());
             }
             var listOrderDetail = order.OrderDetails.OrderBy(o => o.CreatedAt).ToList();
-
-            ViewBag.Order = order;
+            var indbOrder = _db.Orders.Find(order.Id);
+            indbOrder.CalculateTotalPrice();
+            _db.SaveChanges();
+            ViewBag.Order = indbOrder;
 
             return View(listOrderDetail);
         }
@@ -211,6 +217,31 @@ namespace JustBuy.Controllers
                 AppUser = user
             };
             return View(viewModel);
+        }
+        //ajax call only
+        [HttpPost]
+        public ActionResult DeleteOrderDetail(int? id)
+        {
+            if( id == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            var currentOrderDetail = _db.OrderDetails.Find(id);
+            if(currentOrderDetail == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            //get Current order Id
+            var orderId = currentOrderDetail.Order.Id;
+            //delete
+            _db.OrderDetails.Remove(currentOrderDetail);
+            _db.SaveChanges();
+            //return
+            var updatedOrder = _db.Orders.Find(orderId);
+            updatedOrder.CalculateTotalPrice();
+            _db.SaveChanges();
+            ViewBag.Order = updatedOrder;
+            return PartialView("_Cart", updatedOrder.OrderDetails.OrderBy(o => o.CreatedAt).ToList());
         }
 
     }

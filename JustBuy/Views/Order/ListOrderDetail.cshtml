@@ -37,9 +37,9 @@
                                 Shopping cart
                             </a>
                         </li>
-          
+
                         <li>
-                            <a href="@Url.Action("Checkout", new { id = order.Id })" >
+                            <a href="@Url.Action("Checkout", new { id = order.Id })">
                                 <span>02</span>
                                 Checkout
                             </a>
@@ -97,13 +97,26 @@
                                                         </td>
                                                         <td class="product-subtotal">@item.CalculateTotalPrice().ToString("C2")</td>
                                                         <td class="product-remove">
-                                                            <a href="#"><i class="zmdi zmdi-close"></i></a>
+                                                            <button class="delete-button" data-itemid="@item.Id"><i class="zmdi zmdi-close"></i></button>
+
                                                         </td>
                                                     </tr>
-                                                }
 
+
+                                                }
+                                                <tr >
+                                                    <td colspan="5">
+                                                        <a href="@Url.Action("Index", "Product")">
+                                                            <button class="submit-btn-1 btn-hover-1 col-md-3 col-md-offset-9">Add More Product</button>
+                                                        </a>
+                                           
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table>
+
+
+
                                     </div>
                                     <div class="row">
 
@@ -127,30 +140,29 @@
                                                         <td class="order-total">Order Total</td>
                                                         <td class="order-total-price">@order.TotalPrice.ToString("C2")</td>
                                                     </tr>
+
                                                 </table>
+
                                             </div>
                                         </div>
                                     </div>
 
                                 </div>
                                 <div class="row">
-                          
+
                                     <a href="@Url.Action("Checkout", "Order", new { id = order.Id})">
-                               
+
                                         <button class="submit-btn-1 mt-30 btn-hover-1 col-md-2 col-md-offset-10" type="submit">Next Step</button>
 
                                     </a>
-                                                                       
+
                                 </div>
                             </div>
                         </div>
                         <!-- shopping-cart end -->
-                 
                         <!-- checkout start -->
-                
                         <!-- checkout end -->
                         <!-- order-complete start -->
-                
                         <!-- order-complete end -->
                     </div>
                 </div>
@@ -160,6 +172,7 @@
     <!-- SHOP SECTION END -->
 
 </section>
+
 <!-- End page content -->
 @section PageScripts{
     <script>
@@ -171,11 +184,16 @@
                 console.log(current)
                 current.addEventListener("change", update)
             }
+            const deleteButtons = document.querySelectorAll(".delete-button");
+            for (let i = 0; i < deleteButtons.length; i++) {
+                deleteButtons[i].addEventListener("click", deleteItem)
+            }
+
         }
         assignEvent();
 
         function update(e) {
-      
+
             var target = e.target;
             if (parseInt(target.value) < 1) {
                 target.value = 1
@@ -204,6 +222,37 @@
             });
 
 
+        }
+
+        function deleteItem(e) {
+
+            const target = e.target;
+            console.log("Clicked into: " + target.nodeName + " element")
+            let currentButton;
+            if (target.nodeName == "I") {
+                currentButton = target.parentElement;
+            }
+            else {
+                currentButton = target;
+            }
+            console.log(currentButton)
+            const itemId = currentButton.dataset.itemid;
+            console.log("current item id: " + itemId);
+            //ajax call
+            $.ajax({
+                url: "/order/DeleteOrderDetail",
+                data: {
+                    id: itemId,
+                },
+                type: "POST",
+                dataType: "html",
+                success: function (data) {
+                    console.log(data);
+                    updateHtml(data)
+                },
+                complete: assignEvent
+
+            });
         }
         function updateHtml(data) {
             cart.innerHTML = "";

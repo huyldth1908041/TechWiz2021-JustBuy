@@ -18,31 +18,41 @@
             @foreach (var item in Model)
             {
                 <!-- tr -->
-                <tr>
-                    <td class="product-thumbnail">
-                        <div class="pro-thumbnail-img">
-                            <img src="@item.Product.GetSmallImage()" alt="">
-                        </div>
-                        <div class="pro-thumbnail-info text-left">
-                            <h6 class="product-title-2">
-                                <a href="#">@item.Product.Name</a>
-                            </h6>
-                            <p>Category: @item.Product.Category.Name</p>
-                            <p>Model: Grand s2</p>
-                            <p> Color: Black, White</p>
-                        </div>
-                    </td>
-                    <td class="product-price">@item.Product.Price.ToString("C2")</td>
-                    <td class="product-quantity">
-                        <input type="number" value="@item.Quantity" name="qtybutton" min="1" style="width: 65px; padding-left: 15px;">
-                        <input type="hidden" name="orderDetailId" value="@item.Id" />
-                    </td>
-                    <td class="product-subtotal">@item.CalculateTotalPrice().ToString("C2")</td>
-                    <td class="product-remove">
-                        <a href="#"><i class="zmdi zmdi-close"></i></a>
-                    </td>
-                </tr>
+            <tr>
+                <td class="product-thumbnail">
+                    <div class="pro-thumbnail-img">
+                        <img src="@item.Product.GetSmallImage()" alt="">
+                    </div>
+                    <div class="pro-thumbnail-info text-left">
+                        <h6 class="product-title-2">
+                            <a href="#">@item.Product.Name</a>
+                        </h6>
+                        <p>Category: @item.Product.Category.Name</p>
+                        <p>Model: Grand s2</p>
+                        <p> Color: Black, White</p>
+                    </div>
+                </td>
+                <td class="product-price">@item.Product.Price.ToString("C2")</td>
+                <td class="product-quantity">
+                    <input type="number" value="@item.Quantity" name="qtybutton" min="1" style="width: 65px; padding-left: 15px;">
+                    <input type="hidden" name="orderDetailId" value="@item.Id" />
+                </td>
+                <td class="product-subtotal">@item.CalculateTotalPrice().ToString("C2")</td>
+                <td class="product-remove">
+                    <button class="delete-button" data-itemid="@item.Id"><i class="zmdi zmdi-close"></i></button>
+
+                </td>
+            </tr>
             }
+
+            <tr>
+                <td colspan="5">
+                    <a href="@Url.Action("Index", "Product")">
+                        <button class="submit-btn-1 btn-hover-1 col-md-3 col-md-offset-9">Add More Product</button>
+                    </a>
+
+                </td>
+            </tr>
 
         </tbody>
     </table>
