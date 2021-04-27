@@ -14,14 +14,8 @@ namespace JustBuy.Controllers
     [Authorize]
     public class OrderController : Controller
     {
-        private static AppDataContext _db;
-        public OrderController()
-        {
-            if (_db == null)
-            {
-                _db = new AppDataContext();
-            }
-        }
+        private  AppDataContext _db = new AppDataContext();
+    
         // GET: Order
         [Authorize]
         [HttpPost]

@@ -9,14 +9,8 @@ namespace JustBuy.Controllers
 {
     public class AdminController : Controller
     {
-        private static AppDataContext _db;
-        public AdminController()
-        {
-            if (_db == null)
-            {
-                _db = new AppDataContext();
-            }
-        }
+        private  AppDataContext _db = new AppDataContext();
+   
 
         // GET: Admin
         public ActionResult Index()
@@ -53,5 +47,45 @@ namespace JustBuy.Controllers
 
             return RedirectToAction("ListOrder");
         }
+        [HttpPost]
+        public ActionResult CompleteOrder(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            var currentOrder = _db.Orders.Find(id);
+            if (currentOrder == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            //cancel order
+            currentOrder.Status = Order.OrderStatus.Done;
+            _db.SaveChanges();
+
+            return RedirectToAction("ListOrder");
+        }
+        [HttpPost]
+        public ActionResult ToggleProductStatus(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            var product = _db.Products.Find(id);
+            if (product == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            //cancel order
+            product.Status = product.Status == Product.ProductStatus.Active ? Product.ProductStatus.DeActive : Product.ProductStatus.Active;
+            _db.SaveChanges();
+
+            return RedirectToAction("ListProduct");
+        }
+        
+
+
+
     }
 }

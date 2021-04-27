@@ -14,7 +14,7 @@
 
 }
 <h2>
-    LIST PRODUCTS
+    LIST ORDERS
 </h2>
 
 <div class="row">
@@ -80,12 +80,16 @@
                                             <form action="@Url.Action("CancelOrder", "Admin", new { id = item.Id})" style="display: inline" method="post">
                                                 <button type="submit" class="btn btn-danger">Cancel</button>
                                             </form>
-                                          
-                                            <a href="#" class="btn btn-danger">Done</a>
-                                  
+
+                                            <form action="@Url.Action("CompleteOrder", "Admin", new { id = item.Id})" style="display: inline" method="post">
+                                                <button type="submit" class="btn btn-danger">Done</button>
+                                            </form>
+
+                                   
+
                                         }
-                
-                
+
+
                                     </td>
                                 </tr>
                             }

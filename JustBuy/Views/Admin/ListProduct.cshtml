@@ -90,7 +90,20 @@
                                         @Html.DisplayFor(modelItem => item.Status)
                                     </th>
                                     <td>
-                                        <a href="@Url.Action("ManageVehicleDetail", new { id = item.Id})" class="btn btn-primary">Disable</a>
+                                        @if (item.Status == JustBuy.Models.Product.ProductStatus.Active)
+                                        {
+                                            <form action="@Url.Action("ToggleProductStatus", new { id = item.Id})" method="post">
+                                                <button type="submit" class="btn btn-danger">Disable</button>
+                                            </form>
+
+                                        }
+                                        else
+                                        {
+                                            <form action="@Url.Action("ToggleProductStatus", new { id = item.Id})" method="post">
+                                                <button type="submit" class="btn btn-primary">Active</button>
+                                            </form>
+                                        }
+
                                     </td>
                                 </tr>
                             }
@@ -110,7 +123,7 @@
         </div>
     </div>
 </div>
-
+<button id="filter">Filter</button>
 
 @section pageScripts {
     <script src="@Url.Content("~/Content/admin/assets/vendor/multi-select/js/jquery.multi-select.js")"></script>
@@ -129,5 +142,10 @@
     <script src="https://cdn.datatables.net/rowgroup/1.0.4/js/dataTables.rowGroup.min.js"></script>
     <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
     <script src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script>
+
+    <script>
+
+
+    </script>
 
 }
