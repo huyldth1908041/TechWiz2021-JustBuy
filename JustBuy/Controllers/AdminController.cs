@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace JustBuy.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class AdminController : Controller
     {
         private AppDataContext _db = new AppDataContext();
