@@ -187,6 +187,7 @@
 .breadcrumbs {
     background: #f6f6f6 url("bannerProduct.jpg") no-repeat scroll center center;
     background-size: 80%;
+    background-position-y: 85%;
 }
 
 .team-member-photo {
