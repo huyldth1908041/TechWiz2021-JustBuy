@@ -25,7 +25,7 @@ namespace JustBuy.Migrations
             {
                 Id = 1,
                 CategoryId = 1,
-                Description = "The Arla Glison from the Clarks® Cloudsteppers™ Collection provides the best of comfort technology with classic feminine appeal. A fabric upper gives it a playful edge and feels delicately soft between the toes. A Clarks Cushion Soft™ with OrthoLite®",
+                Description = "The Arla Glison from the ClarksÂ® Cloudsteppersâ„¢ Collection provides the best of comfort technology with classic feminine appeal. A fabric upper gives it a playful edge and feels delicately soft between the toes. A Clarks Cushion Softâ„¢ with OrthoLiteÂ®",
                 Images = "SWH-01__12398.1617327166_uyhfm7,SWH-07__48648.1617327181_ogksgl,SWH-05__22163.1617327176_p2wwa6,SWH-06__76517.1617327179_nyhn7x",
                 Name = "Arla Glison",
                 Price = 69.99,
@@ -77,7 +77,7 @@ namespace JustBuy.Migrations
             {
                 Id = 5,
                 CategoryId = 1,
-                Description = "Riva Europe Queenie is a fun, comfy women’s summer sandal. With a flowery black leather toe strap and comfy leather footbed, they’re a dream to look at and a dream to wear. Being dead flat, they’re also fine for a full day’s wearing without being too",
+                Description = "Riva Europe Queenie is a fun, comfy womenâ€™s summer sandal. With a flowery black leather toe strap and comfy leather footbed, theyâ€™re a dream to look at and a dream to wear. Being dead flat, theyâ€™re also fine for a full dayâ€™s wearing without being too",
                 Images = "SWH-01__71708.1617080126_bqud2a,SWH-03__76949.1617080132_qrcvkh",
                 Name = "Queenie",
                 Price = 39.00,
@@ -233,7 +233,7 @@ namespace JustBuy.Migrations
             {
                 Id = 16,
                 CategoryId = 2,
-                Description = "The Scorch Runner is your new go-to for a brisk run or a solid look. These kicks are made with a SoftFoam+ insert for plush, step-in comfort and zoned rubber for dependable stability. Whether you want to look fresh or stay fit–well, you get both.",
+                Description = "The Scorch Runner is your new go-to for a brisk run or a solid look. These kicks are made with a SoftFoam+ insert for plush, step-in comfort and zoned rubber for dependable stability. Whether you want to look fresh or stay fitâ€“well, you get both.",
                 Images = "SWH-01__43477.1617030725_rvbk0g,SWH-02__17534.1617030727_hfp9ca,SWH-03__39408.1617030730_xshhm0",
                 Name = "Chelsea",
                 Price = 95.00,
@@ -324,7 +324,7 @@ namespace JustBuy.Migrations
             {
                 Id = 23,
                 CategoryId = 2,
-                Description = "The Scorch Runner is your new go-to for a brisk run or a solid look. These kicks are made with a SoftFoam+ insert for plush, step-in comfort and zoned rubber for dependable stability. Whether you want to look fresh or stay fit–well, you get both.",
+                Description = "The Scorch Runner is your new go-to for a brisk run or a solid look. These kicks are made with a SoftFoam+ insert for plush, step-in comfort and zoned rubber for dependable stability. Whether you want to look fresh or stay fitâ€“well, you get both.",
                 Images = "SWH-01__43477.1617030725_dgffkx,SWH-02__17534.1617030727_u5han3",
                 Name = "Scorch Runner",
                 Price = 95.00,
@@ -454,7 +454,7 @@ namespace JustBuy.Migrations
                 Id = 3,
                 Cover = "SWH-01__13344.1615418383_cel7e8",
                 Description = "",
-                Name = "Sandals",
+                Name = "Boots",
                 Status = Category.CategoryStatus.Active,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
