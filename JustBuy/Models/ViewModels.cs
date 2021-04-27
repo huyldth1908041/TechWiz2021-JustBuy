@@ -27,5 +27,14 @@ namespace JustBuy.Models
     }
 
 
+    public class DashBoardViewModels
+    {
+        public List<Order> ListCurrentOrders { get; set; }
+        public int TotalCategory { get; set; }
+        public int TotalProduct { get; set; }
+        public int TotalCustomer { get; set; }
+        public int TotalOrder { get; set; }
+    }
+
 
 }

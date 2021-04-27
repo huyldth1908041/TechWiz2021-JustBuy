@@ -1,0 +1,150 @@
+﻿@model JustBuy.Models.Product
+
+@{
+    ViewBag.Title = "CreateProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+
+    List<JustBuy.Models.Category> listCategory = ViewBag.ListCategory as List<JustBuy.Models.Category>;
+    var listCategorySelectList = new SelectList(listCategory, "Id", "Name", 1);
+}
+
+<h2>CREATE VEHICLE</h2>
+
+
+<div class="card">
+    <div class="card-body">
+        <form action="@Url.Action("CreateProduct", "Admin")" method="post" id="create-product-form">
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>Vehicle Information</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-row container">
+                    <div class="form-group col-md-5">
+                        <label for="Brand" class="control-label">Category </label>
+                        @Html.DropDownListFor(model => model.CategoryId, listCategorySelectList, new { @class = "form-control" })
+                    </div>
+
+                    <div class="form-group col-md-5">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+                        <div>
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-row container">
+
+                    <div class="form-group col-md-5">
+                        @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label" })
+                        <div>
+                            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-5">
+                        @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label " })
+                        <div>
+                            @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-row container">
+
+                    <div class="form-group col-md-5">
+                        @Html.LabelFor(model => model.Images, htmlAttributes: new { @class = "control-label" })
+                        <div class="field item form-group">
+
+                            <div>
+                                <button type="button" id="upload_widget" class="btn btn-secondary" style="margin-left: 10px ">
+                                    Click to upload
+                                </button>
+                            </div>
+                            <div class="col-md-6 col-sm-6 mt-2 cover">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-5">
+                        @Html.LabelFor(model => model.LaunchDate, htmlAttributes: new { @class = "control-label " })
+                        <div>
+                            @Html.EditorFor(model => model.LaunchDate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.LaunchDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<div>
+    @Html.ActionLink("Back to List", "ListProdcut")
+</div>
+
+@section pageScripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            var myWidget = cloudinary.createUploadWidget({
+                cloudName: 'dwarrion',
+                uploadPreset: 'rdjyel16',
+                multiple: true,
+                form: '#create-product-form',
+                fieldName: 'Covers',
+                thumbnails: '.cover',
+
+            }, (error, result) => {
+                if (!error && result && result.event === "success") {
+                    var inputValues = document.querySelectorAll('input[name="Covers"]');
+                    for (let i = 0; i < inputValues.length; i++) {
+                        inputValues[i].value = inputValues[i].getAttribute('data-cloudinary-public-id')
+                    }
+                }
+            }
+            )
+            document.getElementById("upload_widget").addEventListener("click", function () {
+                myWidget.open();
+            }, false);
+            $('body').on('click', '.cloudinary-delete', function () {
+                var splittedImg = $(this).parent().find('img').attr('src').split('/');
+                var imgName = splittedImg[splittedImg.length - 1];
+                var splittedImgName = imgName.split('.');
+                var imgCode = splittedImgName[0];
+                $('input[data-cloudinary-public-id="' + imgCode + '"]').remove();
+            });
+        })
+    </script>
+
+   
+}
+

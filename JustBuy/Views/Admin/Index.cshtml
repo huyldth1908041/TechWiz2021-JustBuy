@@ -1,8 +1,146 @@
 ﻿
+@model JustBuy.Models.DashBoardViewModels
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Hello admin template</h2>
+<div class="ecommerce-widget">
+
+
+    <div class="row">
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- recent orders  -->
+        <!-- ============================================================== -->
+        <div class="col-12">
+            <div class="card">
+                <h5 class="card-header">Recent Orders</h5>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="bg-light">
+                                <tr class="border-0">
+                                    <th class="border-0">#</th>
+                                    <th class="border-0">Customer</th>
+                                    <th class="border-0">Items</th>
+
+                                    <th class="border-0">Price</th>
+                                    <th class="border-0">Order Time</th>
+                                    <th class="border-0">Delivery Time</th>
+
+                                    <th class="border-0">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.ListCurrentOrders)
+                                {
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td>
+                                            @item.User.FullName
+                                        </td>
+                                        <td>
+                                            @foreach (var od in item.OrderDetails)
+                                            {
+                                                @od.Product.Name <span>x</span> @od.Quantity <br />
+                                            }
+                                        </td>
+                                        <td>@item.TotalPrice.ToString("C2") </td>
+
+
+                                        <td>@item.CreatedAt.ToString("MM-dd-yyyy HH:mm:ss")</td>
+                                        <td>@item.DeliveryDate.ToString("MM-dd-yyyy HH:mm:ss")</td>
+                                        <td>@item.Status</td>
+
+                                    </tr>
+                                }
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- end recent orders  -->
+        <!-- ============================================================== -->
+
+    </div>
+
+
+    <div class="row">
+        <!-- ============================================================== -->
+        <!-- Vehicle Model Count  -->
+        <!-- ============================================================== -->
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="card border-3 border-top border-top-primary">
+                <div class="card-body">
+                    <h5 class="text-muted">Total Categories</h5>
+                    <div class="metric-value d-inline-block">
+                        <h1 class="mb-1">@Model.TotalCategory</h1>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end sales  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- total vehicle  -->
+        <!-- ============================================================== -->
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="card border-3 border-top border-top-primary">
+                <div class="card-body">
+                    <h5 class="text-muted">Total Products</h5>
+                    <div class="metric-value d-inline-block">
+                        <h1 class="mb-1">@Model.TotalProduct</h1>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end new customer  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Customers  -->
+        <!-- ============================================================== -->
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="card border-3 border-top border-top-primary">
+                <div class="card-body">
+                    <h5 class="text-muted">Total Customers</h5>
+                    <div class="metric-value d-inline-block">
+                        <h1 class="mb-1">@Model.TotalCustomer</h1>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end visitor  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- total orders  -->
+        <!-- ============================================================== -->
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="card border-3 border-top border-top-primary">
+                <div class="card-body">
+                    <h5 class="text-muted">Total Orders</h5>
+                    <div class="metric-value d-inline-block">
+                        <h1 class="mb-1">@Model.TotalOrder</h1>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end total orders  -->
+        <!-- ============================================================== -->
+    </div>
+</div>
 

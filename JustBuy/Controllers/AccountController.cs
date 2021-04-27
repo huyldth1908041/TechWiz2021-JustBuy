@@ -102,6 +102,29 @@ namespace JustBuy.Controllers
 
                 return View();
             }
+            //assign to user role
+            var roleManager = HttpContext.GetOwinContext().Get<AppRoleManager>();
+    
+            var existedRole = roleManager.FindByName("User");
+            if(existedRole == null)
+            {
+                var createRoleResult = await roleManager.CreateAsync(new AppRole { Name = "User" });
+                if(!createRoleResult.Succeeded)
+                {
+                    ModelState.AddModelError("","some erros has occured");
+
+                    return View();
+                }
+            }
+            //add to role user
+            var addToRoleResutlt = userManager.AddToRole(user.Id, "User");
+            if(!addToRoleResutlt.Succeeded)
+            {
+                ModelState.AddModelError("", "some erros has occured");
+
+                return View();
+            }
+          
             //login user
             var ident = userManager.CreateIdentity(user,
                       DefaultAuthenticationTypes.ApplicationCookie);
