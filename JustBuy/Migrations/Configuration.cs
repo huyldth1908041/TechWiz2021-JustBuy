@@ -21,7 +21,7 @@ namespace JustBuy.Migrations
         {
             this.seedCategory(context);
             this.seedProduct(context);
-   
+
         }
 
         private void seedProduct(AppDataContext context)
@@ -466,62 +466,8 @@ namespace JustBuy.Migrations
             }
             );
         }
-
-        private static void SeedRoles(RoleManager<AppRole> roleManager)
-        {
-            if (!roleManager.RoleExistsAsync("User").Result)
-            {
-                AppRole role = new AppRole();
-                role.Name = "User";
-                role.Description = "Perform normal operations.";
-                IdentityResult roleResult = roleManager.CreateAsync(role).Result;
-            }
-
-
-            if (!roleManager.RoleExistsAsync("Admin").Result)
-            {
-                AppRole role = new AppRole();
-                role.Name = "Admin";
-                role.Description = "Perform all the operations.";
-                IdentityResult roleResult = roleManager.CreateAsync(role).Result;
-            }
-        }
-
-
-        private static void SeedUsers(UserManager<AppUser> userManager)
-        {
-            if (userManager.FindByNameAsync("justbuyuser").Result == null)
-            {
-                AppUser user = new AppUser();
-                user.UserName = "user1";
-                user.Email = "user1@localhost";
-                user.FullName = "Just Buy User";
-
-                IdentityResult result = userManager.CreateAsync
-                (user, "123@abc").Result;
-
-                if (result.Succeeded)
-                {
-                    userManager.AddToRoleAsync(user.Id, "User").Wait();
-                }
-            }
-
-
-            if (userManager.FindByNameAsync("justbuyadmin").Result == null)
-            {
-                AppUser user = new AppUser();
-                user.UserName = "justbuyadmin";
-                user.Email = "user2@localhost";
-                user.FullName = "Mark Smith";
-
-
-                IdentityResult result = userManager.CreateAsync(user, "admin@123").Result;
-
-                if (result.Succeeded)
-                {
-                    userManager.AddToRoleAsync(user.Id, "Admin").Wait();
-                }
-            }
-        }
     }
+
+
 }
+
